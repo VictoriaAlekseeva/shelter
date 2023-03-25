@@ -1,0 +1,40 @@
+@font-face {
+  font-family: Georgia;
+  src: url(./src/fonts/georgia/georgia-regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Georgia;
+  src: url(./src/fonts/georgia/georgia-italic.ttf);
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: Arial;
+  src: url(./src/fonts/arial/arial-regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Arial;
+  src: url(./src/fonts/arial/arial-italic.ttf);
+  font-weight: 400;
+  font-style: italic;
+}
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.5 rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=style.css.map */
