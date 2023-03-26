@@ -7,20 +7,27 @@
   letter-spacing: 0.06em;
   text-align: center;
   color: $color-dark-3xl;
-  width: 207px;
-  height: 52px;
+  // width: 207px;
+  // height: 52px;
   border-radius: 100px;
   padding: 15px 44px;
   border-color: $color-primary;
   cursor: pointer;
-}
+  width: fit-content;
 
-.button-link_colored {
-  background-color: $color-primary;
+  &_colored {
+    background-color: $color-primary;
 
-  &:hover {
-    background-color: $color-primary-light;
-    color: $color-dark-3xl;
+    &:hover {
+      background-color: $color-primary-light;
+      color: $color-dark-3xl;
+    }
+  }
+
+  &_bordered {
+    border: 2px solid $color-primary;
   }
 }
+
+
 

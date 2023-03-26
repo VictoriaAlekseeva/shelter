@@ -84,6 +84,15 @@ h3 {
   color: #545454;
 }
 
+h4 {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.2rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
 p {
   font-size: 1.5rem;
   font-style: normal;
@@ -155,6 +164,65 @@ p {
 
 .our-friends {
   background-color: #F6F6F6;
+}
+
+.our-friends__wrapper {
+  padding: 80px 0 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.our-friends__wrapper h3 {
+  text-align: center;
+  width: 400px;
+}
+
+.friends__wrapper {
+  position: relative;
+  display: flex;
+  padding: 60px 105px;
+  gap: 90px;
+}
+
+.arrow {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #F1CDB3;
+  text-align: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: calc(50% - 26px);
+}
+.arrow_left {
+  background-image: url(../src/img/svg/Arrow_left.svg);
+  left: 0;
+}
+.arrow_right {
+  background-image: url(../src/img/svg/Arrow_right.svg);
+  right: 0;
+}
+
+.friends__card {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FAFAFA;
+  border-radius: 9px;
+  padding-bottom: 30px;
+}
+
+.friend__img {
+  height: 270px;
+  width: 270px;
+}
+
+.friend__name {
+  margin: 30px 0;
 }
 
 .help {
@@ -249,20 +317,21 @@ p {
   letter-spacing: 0.06em;
   text-align: center;
   color: #292929;
-  width: 207px;
-  height: 52px;
   border-radius: 100px;
   padding: 15px 44px;
   border-color: #F1CDB3;
   cursor: pointer;
+  width: fit-content;
 }
-
 .button-link_colored {
   background-color: #F1CDB3;
 }
 .button-link_colored:hover {
   background-color: #FDDCC4;
   color: #292929;
+}
+.button-link_bordered {
+  border: 2px solid #F1CDB3;
 }
 
 /*# sourceMappingURL=style.css.map */
