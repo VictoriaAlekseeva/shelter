@@ -1,0 +1,38 @@
+.logo-link {
+  font-family: Georgia;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.logo-link,
+.logo-link:active,
+.logo-link:visited,
+.logo-link:hover,
+.logo-link:focus,
+.logo-link:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-link:hover,
+.logo-link:focus {
+  opacity: 0.5;
+}
+
+.logo-link:active {
+  background-color: $color-dark-2xl;
+}
+
+.logo__text {
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15px;
+  letter-spacing: 0.1em;
+  color: $color-light-xl;
+  margin-top: 8px;
+}

@@ -1,0 +1,32 @@
+.navigation {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.navigation__link {
+  font-family: Arial;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: $color-dark-s;
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
+.navigation__link:active {
+  color: $color-light-s;
+  border-bottom: 3px solid $color-primary;
+}
+
+.navigation__link:hover {
+  color: $color-light-s;
+}
+
+.navigation__link_active {
+  cursor: default;
+  color: $color-light-s;
+  border-bottom: 3px solid $color-primary;
+}
