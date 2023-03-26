@@ -24,17 +24,59 @@
 }
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 body {
   font-size: 1.5 rem;
   font-family: Georgia;
-  font-weight: normal;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 3.2rem;
+  line-height: 3.5rem;
+  letter-spacing: 6%;
+  text-align: left;
+  color: #F1CDB3;
+}
+
+h2 {
+  font-size: 44px;
+  line-height: 57px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+h3 {
+  font-size: 35px;
+  line-height: 45px;
+  letter-spacing: 0.06em;
+  text-align: left;
+  color: #545454;
 }
 
 .wrapper {
   width: 1200px;
   margin: 0 auto;
+}
+
+.about {
+  background-color: #FFFFFF;
+}
+
+.our-friends {
+  background-color: #F6F6F6;
+}
+
+.help {
+  background-color: #FFFFFF;
+}
+
+.in-addition {
+  background-color: #F6F6F6;
 }
 
 /*# sourceMappingURL=style.css.map */
