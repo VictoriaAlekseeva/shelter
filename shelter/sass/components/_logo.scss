@@ -14,7 +14,6 @@
 .logo-link:hover,
 .logo-link:focus,
 .logo-link:active {
-  text-decoration: none;
   color: inherit;
 }
 
@@ -35,4 +34,5 @@
   letter-spacing: 0.1em;
   color: $color-light-xl;
   margin-top: 8px;
+  text-align: center;
 }
