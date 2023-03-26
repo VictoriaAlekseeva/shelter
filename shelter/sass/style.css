@@ -1,3 +1,15 @@
+.navigation__link, .logo-link {
+  transition: all 0.3s ease-out;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.navigation__link, .logo__text, p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 @font-face {
   font-family: Georgia;
   src: url(../src/fonts/georgia/georgia-regular.ttf);
@@ -25,17 +37,16 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 10px;
   scroll-behavior: smooth;
-  box-sizing: border-box;
 }
 
 body {
-  font-size: 1.5 rem;
-  font-family: Georgia;
+  font-size: 1.5rem;
   font-weight: 400;
   font-style: normal;
 }
@@ -46,32 +57,38 @@ a {
 
 h1 {
   font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 400;
   line-height: 3.5rem;
   text-align: left;
   color: #F1CDB3;
 }
 
 h2 {
-  font-size: 44px;
-  line-height: 57px;
+  font-size: 4.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 5.7rem;
   letter-spacing: 0em;
   text-align: left;
   color: #FFFFFF;
 }
 
 h3 {
-  font-size: 35px;
-  line-height: 45px;
+  font-size: 3.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4.5rem;
   letter-spacing: 0.06em;
   text-align: left;
   color: #545454;
 }
 
 p {
-  font-family: Arial;
-  font-size: 15px;
+  font-size: 1.5rem;
+  font-style: normal;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
   letter-spacing: 0px;
   text-align: left;
 }
@@ -137,14 +154,13 @@ p {
 }
 
 .logo-link {
-  font-family: Georgia;
   font-size: 32px;
+  font-style: normal;
   font-weight: 400;
   line-height: 35px;
   letter-spacing: 0.06em;
   text-align: center;
   margin-top: 2px;
-  transition: 0.5s all;
 }
 
 .logo-link,
@@ -166,8 +182,8 @@ p {
 }
 
 .logo__text {
-  font-family: Arial;
   font-size: 13px;
+  font-style: normal;
   font-weight: 400;
   line-height: 15px;
   letter-spacing: 0.1em;
@@ -186,15 +202,14 @@ p {
 }
 
 .navigation__link {
-  font-family: Arial;
-  font-size: 1.5rem;
+  font-size: 15px;
+  font-style: normal;
   font-weight: 400;
   line-height: 24px;
   letter-spacing: 0px;
   text-align: left;
   color: #CDCDCD;
   padding-bottom: 2px;
-  transition: 0.5s all;
 }
 
 .navigation__link:active {
@@ -214,12 +229,11 @@ p {
 
 .button-link {
   display: block;
-  box-sizing: border-box;
-  text-decoration: none;
-  font-family: Georgia;
   font-size: 17px;
+  font-style: normal;
   font-weight: 400;
   line-height: 22px;
+  text-decoration: none;
   letter-spacing: 0.06em;
   text-align: center;
   color: #292929;

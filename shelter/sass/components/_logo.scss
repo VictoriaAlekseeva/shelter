@@ -1,12 +1,11 @@
 .logo-link {
-  font-family: Georgia;
-  font-size: 32px;
-  font-weight: 400;
-  line-height: 35px;
+
+  @include font (32px, 35px);
   letter-spacing: 0.06em;
   text-align: center;
   margin-top: 2px;
-  transition: .5s all;
+
+  @extend %transition;
 }
 
 .logo-link,
@@ -28,10 +27,9 @@
 }
 
 .logo__text {
-  font-family: Arial;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 15px;
+  @include font (13px, 15px);
+  @extend %font-add;
+
   letter-spacing: 0.1em;
   color: $color-light-xl;
   margin-top: 8px;

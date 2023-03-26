@@ -1,17 +1,18 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
   font-size: 10px;
   scroll-behavior: smooth;
-  box-sizing: border-box;
 }
 
 body {
-  font-size: 1.5 rem;
-  font-family: Georgia;
+  @extend %font-main;
+
+  font-size: 1.5rem;
   font-weight: 400;
   font-style: normal;
 }
@@ -21,33 +22,31 @@ a {
 }
 
 h1 {
-  font-size: 3.2rem;
-  line-height: 3.5rem;
+  @include font (3.2rem, 3.5rem);
+
   text-align: left;
   color: $color-primary;
 }
 
 h2 {
-  font-size: 44px;
-  line-height: 57px;
+  @include font (4.4rem, 5.7rem);
+
   letter-spacing: 0em;
   text-align: left;
   color: $color-light-xl;
 }
 
 h3 {
-  font-size: 35px;
-  line-height: 45px;
+  @include font (3.5rem, 4.5rem);
   letter-spacing: 0.06em;
   text-align: left;
   color: $color-dark-l;
 }
 
 p {
-  font-family: Arial;
-  font-size: 15px;
-  font-weight: 400;
-  line-height: 24px;
+  @include font (1.5rem, 2.4rem);
+
+  @extend %font-add;
   letter-spacing: 0px;
   text-align: left;
 }

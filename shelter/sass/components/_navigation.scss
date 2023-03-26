@@ -8,15 +8,15 @@
 }
 
 .navigation__link {
-  font-family: Arial;
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 24px;
+  @include font (15px, 24px);
+  @extend %font-add;
+
   letter-spacing: 0px;
   text-align: left;
   color: $color-dark-s;
   padding-bottom: 2px;
-  transition: .5s all;
+
+  @extend %transition;
 }
 
 .navigation__link:active {
