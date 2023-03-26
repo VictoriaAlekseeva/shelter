@@ -229,6 +229,41 @@ p {
   background-color: #FFFFFF;
 }
 
+.help__wrapper {
+  padding: 80px 0 70px;
+}
+.help__wrapper h3 {
+  width: 340px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.help__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.help__items {
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.3rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin: 25px 60px 30px;
+}
+
+.help__icon {
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
 .in-addition {
   background-color: #F6F6F6;
 }

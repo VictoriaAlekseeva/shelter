@@ -1,3 +1,36 @@
 .help {
   background-color: $color-light-xl;
 }
+
+.help__wrapper {
+  padding: 80px 0 70px;
+
+  h3 {
+    width: 340px;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+.help__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.help__items {
+  @include font (2rem, 2.3rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin: 25px 60px 30px;
+}
+
+.help__icon {
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
