@@ -141,6 +141,18 @@ p {
   background-color: #FFFFFF;
 }
 
+.about__wrapper {
+  padding: 80px 175px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+}
+
+.about__text {
+  margin-top: 25px;
+}
+
 .our-friends {
   background-color: #F6F6F6;
 }
