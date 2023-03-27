@@ -28,13 +28,11 @@
     color: $color-light-s;
   }
 
-
   &_pets {
     color: $color-dark-l;
 
     &:hover {
       color: $color-dark-3xl;
-      background-color: $color-dark-s;
     }
   }
 }

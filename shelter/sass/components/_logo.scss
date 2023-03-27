@@ -22,8 +22,10 @@
 }
 
 .logo-link:active {
-  background-color: $color-dark-2xl;
+  opacity: 0.8;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 1);
 }
+
 
 .logo__text {
   @include font (13px, 15px);
@@ -36,10 +38,9 @@
 
   &_pets {
     color: $color-dark-3xl;
-
   }
 }
 
 .logo__header_pets {
-  color: $color-dark-l
+  color: $color-dark-l;
 }
