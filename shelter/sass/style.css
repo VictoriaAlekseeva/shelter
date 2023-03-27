@@ -1,4 +1,4 @@
-.navigation__link, .logo-link {
+.navigation__link, .logo-link, .friends__card:hover {
   transition: all 0.3s ease-out;
 }
 
@@ -218,6 +218,16 @@ p {
   background-color: #FAFAFA;
   border-radius: 9px;
   padding-bottom: 30px;
+}
+.friends__card:hover {
+  cursor: pointer;
+  scale: 105%;
+  box-shadow: 4px 4px 8px 5px rgba(241, 205, 179, 0.4);
+}
+.friends__card:hover .button-link_bordered {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+  color: #292929;
 }
 
 .friend__img {
