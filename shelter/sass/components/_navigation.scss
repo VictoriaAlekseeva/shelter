@@ -39,8 +39,6 @@
   }
 }
 
-
-
 .navigation__link_active {
   cursor: default;
   color: $color-light-s;
@@ -48,5 +46,9 @@
 
   &_pets {
     color: $color-dark-3xl;
+
+    &:hover {
+      color: $color-dark-3xl;
+    }
   }
 }
