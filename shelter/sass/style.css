@@ -1,15 +1,3 @@
-.navigation__link, .logo-link, .friends__card:hover {
-  transition: all 0.3s ease-out;
-}
-
-.button-link, body {
-  font-family: "Georgia", "Times New Roman", Times, serif;
-}
-
-.navigation__link, .logo__text, p {
-  font-family: "Arial", Helvetica, sans-serif;
-}
-
 @font-face {
   font-family: "Arial";
   src: local("Arial Italic"), local("Arial-ItalicMT"), url("../src/fonts/arial/Arial-ItalicMT.woff2") format("woff2"), url("../src/fonts/arial/Arial-ItalicMT.woff") format("woff"), url("../src/fonts/arial/Arial-ItalicMT.ttf") format("truetype");
@@ -38,6 +26,18 @@
   font-style: italic;
   font-display: swap;
 }
+.navigation__link, .logo-link, .friends__card:hover {
+  transition: all 0.3s ease-out;
+}
+
+.button-link, body {
+  font-family: "Georgia", "Times New Roman", Times, serif;
+}
+
+.navigation__link, .logo__text, p {
+  font-family: "Arial", Helvetica, sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
