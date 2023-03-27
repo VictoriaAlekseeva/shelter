@@ -150,7 +150,7 @@ p {
 }
 
 .not-only__description {
-  margin: 40px 0;
+  margin: 40px 0 42px;
   color: #CDCDCD;
 }
 
@@ -175,7 +175,7 @@ p {
 }
 
 .our-friends__wrapper {
-  padding: 80px 0 100px;
+  padding: 90px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -271,7 +271,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .help__items {
@@ -289,7 +289,7 @@ p {
   width: 60px;
   height: 60px;
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 27px;
 }
 
 .in-addition {
@@ -385,36 +385,19 @@ p {
 
 .footer__link {
   color: #F1CDB3;
-  display: block;
-  height: 32px;
-  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
   font-size: 2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 2.3rem;
   letter-spacing: 0.06em;
-  text-align: center;
+  text-align: left;
 }
 
-.footer_email {
-  background-image: url(../src/img/svg/icons/icon-email.svg);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
-}
-
-.footer_phone {
-  background-image: url(../src/img/svg/icons/icon-phone.svg);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
-}
-
-.footer_adress {
-  background-image: url(../src/img/svg/icons/icon-marker.svg);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
+.footer__icon {
+  height: 32px;
 }
 
 .our-friends-pets {

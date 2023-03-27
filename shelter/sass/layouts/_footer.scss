@@ -37,33 +37,16 @@
 
 .footer__link {
   color: $color-primary;
-  display: block;
-  height: 32px;
-  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
   @include font(2rem, 2.3rem);
 
   letter-spacing: 0.06em;
-  text-align: center;
+  text-align: left;
 }
 
-.footer_email {
-  background-image: url(../src/img/svg/icons/icon-email.svg);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
-}
-
-.footer_phone {
-  background-image: url(../src/img/svg/icons/icon-phone.svg);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
-}
-
-.footer_adress {
-  background-image: url(../src/img/svg/icons/icon-marker.svg);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
+.footer__icon {
+  height: 32px;
 }
