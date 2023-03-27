@@ -2,37 +2,41 @@
   transition: all 0.3s ease-out;
 }
 
-body {
-  font-family: Georgia, "Times New Roman", Times, serif;
+.button-link, body {
+  font-family: "Georgia", "Times New Roman", Times, serif;
 }
 
 .navigation__link, .logo__text, p {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Arial", Helvetica, sans-serif;
 }
 
 @font-face {
-  font-family: Georgia;
-  src: url(../src/fonts/georgia/georgia-regular.ttf);
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: Georgia;
-  src: url(../src/fonts/georgia/georgia-italic.ttf);
+  font-family: "Arial";
+  src: local("Arial Italic"), local("Arial-ItalicMT"), url("../src/fonts/arial/Arial-ItalicMT.woff2") format("woff2"), url("../src/fonts/arial/Arial-ItalicMT.woff") format("woff"), url("../src/fonts/arial/Arial-ItalicMT.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 @font-face {
-  font-family: Arial;
-  src: url(../src/fonts/arial/arial-regular.ttf);
+  font-family: "Arial";
+  src: local("Arial"), local("ArialMT"), url("../src/fonts/arial/ArialMT.woff2") format("woff2"), url("../src/fonts/arial/ArialMT.woff") format("woff"), url("../src/fonts/arial/ArialMT.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 @font-face {
-  font-family: Arial;
-  src: url(../src/fonts/arial/arial-italic.ttf);
+  font-family: "Georgia";
+  src: local("Georgia"), url("../src/fonts/georgia/Georgia.woff2") format("woff2"), url("../src/fonts/georgia/Georgia.woff") format("woff"), url("../src/fonts/georgia/Georgia.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Georgia";
+  src: local("Georgia Italic"), local("Georgia-Italic"), url("../src/fonts/georgia/Georgia-Italic.woff2") format("woff2"), url("../src/fonts/georgia/Georgia-Italic.woff") format("woff"), url("../src/fonts/georgia/Georgia-Italic.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 * {
   margin: 0;
@@ -146,7 +150,7 @@ p {
 }
 
 .not-only__description {
-  margin: 40px 0;
+  margin: 40px 0 42px;
   color: #CDCDCD;
 }
 
@@ -171,7 +175,7 @@ p {
 }
 
 .our-friends__wrapper {
-  padding: 80px 0 100px;
+  padding: 90px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -267,7 +271,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .help__items {
@@ -285,7 +289,7 @@ p {
   width: 60px;
   height: 60px;
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 27px;
 }
 
 .in-addition {
@@ -381,36 +385,19 @@ p {
 
 .footer__link {
   color: #F1CDB3;
-  display: block;
-  height: 32px;
-  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
   font-size: 2rem;
   font-style: normal;
   font-weight: 400;
   line-height: 2.3rem;
   letter-spacing: 0.06em;
-  text-align: center;
+  text-align: left;
 }
 
-.footer_email {
-  background-image: url(../src/img/svg/icons/icon-email.svg);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
-}
-
-.footer_phone {
-  background-image: url(../src/img/svg/icons/icon-phone.svg);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
-}
-
-.footer_adress {
-  background-image: url(../src/img/svg/icons/icon-marker.svg);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: contain;
+.footer__icon {
+  height: 32px;
 }
 
 .our-friends-pets {
