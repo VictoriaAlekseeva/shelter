@@ -1,0 +1,28 @@
+.pagination__item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+
+  @include font (2rem);
+  margin: 0 8px;
+
+  &_inactive {
+    border: 2px solid $color-dark-s;
+    color: $color-dark-s;
+  }
+
+  &_active {
+    border: 2px solid $color-primary;
+    color: $color-dark-3xl;
+
+    &_page-number {
+      background-color: $color-primary;
+    }
+  }
+
+
+}
+

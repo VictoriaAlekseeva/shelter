@@ -1,0 +1,45 @@
+.logo-link {
+  @include font (32px, 35px);
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-top: 2px;
+
+  @extend %transition;
+}
+
+.logo-link,
+.logo-link:active,
+.logo-link:visited,
+.logo-link:hover,
+.logo-link:focus,
+.logo-link:active {
+  color: inherit;
+}
+
+.logo-link:hover,
+.logo-link:focus {
+  opacity: 0.5;
+}
+
+.logo-link:active {
+  background-color: $color-dark-2xl;
+}
+
+.logo__text {
+  @include font (13px, 15px);
+  @extend %font-add;
+
+  letter-spacing: 0.1em;
+  color: $color-light-xl;
+  margin-top: 8px;
+  text-align: center;
+
+  &_pets {
+    color: $color-dark-3xl;
+
+  }
+}
+
+.logo__header_pets {
+  color: $color-dark-l
+}

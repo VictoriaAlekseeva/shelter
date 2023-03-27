@@ -4,81 +4,99 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./sass/style.css">
   <title>Pets</title>
 </head>
 <body>
-  <header class="header">
-    <div class="wrapper">
-      <div class="logo">
-        <h1 class="logo__header"><a href="./index.html">Cozy House</a></h1>
-        <p class="logo__text">Shelter for pets in Boston</p>
-      </div>
+  <header class="header header_pets">
+    <div class="wrapper header__wrapper">
+      <a href="./index.html" class="logo-link">
+        <h1 class="logo__header logo__header_pets">Cozy House</h1>
+        <p class="logo__text logo__text_pets">Shelter for pets in Boston</p>
+      </a>
       <nav class="header__navigation">
         <ul class="navigation">
-          <li class="navigation__item"><a href="./index.html" class="navigation__link">About the shelter</a></li>
-          <li class="navigation__item"><a href="#" class="navigation__link">Our pets</a></li>
-          <li class="navigation__item"><a href="./index.html#help" class="navigation__link">Help the shelter</a></li>
-          <li class="navigation__item"><a href="#footer" class="navigation__link">Contacts</a></li>
+          <li class="navigation__item"><a href="./index.html" class="navigation__link navigation__link_pets">About the shelter</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link navigation__link_active navigation__link_active_pets">Our pets</a></li>
+          <li class="navigation__item"><a href="./index.html#help" class="navigation__link navigation__link_pets">Help the shelter</a></li>
+          <li class="navigation__item"><a href="#footer" class="navigation__link navigation__link_pets">Contacts</a></li>
         </ul>
       </nav>
     </div>
   </header>
   <main class="main">
-    <h3>Our friends who are looking for a house</h3>
-    <div class="friends__wrapper">
-      <div class="friends__card">
-        <img src="./src/img/pets-katrine.png" alt="Katrine" class="friend__img">
-        <p class="friend__text">Katrine</p>
-        <button class="button-link button-link_bordered">Learn more</button>
+    <section class="our-friends-pets">
+      <div class="wrapper our-friends-pets__wrapper">
+        <h3>Our friends who are&nbsp;looking for a house</h3>
+        <div class="friends-cards__wrapper">
+          <div class="friends__card">
+            <img src="./src/img/pets-katrine.png" alt="Katrine" class="friend__img">
+            <h4 class="friend__name">Katrine</h4>
+            <button class="button-link button-link_bordered">Learn more</button>
+          </div>
+          <div class="friends__card">
+            <img src="./src/img/pets-jennifer.png" alt="Jennifer" class="friend__img">
+            <h4 class="friend__name">Jennifer</h4>
+            <button class="button-link button-link_bordered">Learn more</button>
+          </div>
+          <div class="friends__card">
+            <img src="./src/img/pets-woody.png" alt="Woody" class="friend__img">
+            <h4 class="friend__name">Woody</h4>
+            <button class="button-link button-link_bordered">Learn more</button>
+          </div>
+          <div class="friends__card">
+            <img src="./src/img/pets-sophia.png" alt="Sophia" class="friend__img">
+            <h4 class="friend__name">Sophia</h4>
+            <button class="button-link button-link_bordered">Learn more</button>
+          </div>
+          <div class="friends__card">
+            <img src="./src/img/pets-timmy.png" alt="Timmy" class="friend__img">
+            <h4 class="friend__name">Timmy</h4>
+            <button class="button-link button-link_bordered">Learn more</button>
+          </div>
+          <div class="friends__card">
+            <img src="./src/img/pets-charly.png" alt="Charly" class="friend__img">
+            <h4 class="friend__name">Charly</h4>
+            <button class="button-link button-link_bordered">Learn more</button>
+          </div>
+          <div class="friends__card">
+            <img src="./src/img/pets-scarlet.png" alt="Scarlett" class="friend__img">
+            <h4 class="friend__name">Scarlett</h4>
+            <button class="button-link button-link_bordered">Learn more</button>
+          </div>
+          <div class="friends__card">
+            <img src="./src/img/pets-freddie.png" alt="Freddie" class="friend__img">
+            <h4 class="friend__name">Freddie</h4>
+            <button class="button-link button-link_bordered">Learn more</button>
+          </div>
+        </div>
+        <div class="pagination">
+          <span class="pagination__item pagination__item_inactive"> &lt;&lt; </span>
+          <span class="pagination__item pagination__item_inactive"> &lt; </span>
+          <span class="pagination__item pagination__item_active pagination__item_active_page-number">1</span>
+          <span class="pagination__item pagination__item_active"> &gt; </span>
+          <span class="pagination__item pagination__item_active"> &gt;&gt; </span>
+        </span>
       </div>
-      <div class="friends__card">
-        <img src="./src/img/pets-katrine.png" alt="Katrine" class="friend__img">
-        <p class="friend__text">Katrine</p>
-        <button class="button-link button-link_bordered">Learn more</button>
-      </div>
-      <div class="friends__card">
-        <img src="./src/img/pets-katrine.png" alt="Katrine" class="friend__img">
-        <p class="friend__text">Katrine</p>
-        <button class="button-link button-link_bordered">Learn more</button>
-      </div>
-      <div class="friends__card">
-        <img src="./src/img/pets-katrine.png" alt="Katrine" class="friend__img">
-        <p class="friend__text">Katrine</p>
-        <button class="button-link button-link_bordered">Learn more</button>
-      </div>
-      <div class="friends__card">
-        <img src="./src/img/pets-katrine.png" alt="Katrine" class="friend__img">
-        <p class="friend__text">Katrine</p>
-        <button class="button-link button-link_bordered">Learn more</button>
-      </div>
-      <div class="friends__card">
-        <img src="./src/img/pets-katrine.png" alt="Katrine" class="friend__img">
-        <p class="friend__text">Katrine</p>
-        <button class="button-link button-link_bordered">Learn more</button>
-      </div>
-    </div>
-    <div class="pagination__wrapper">
-      <span class="pagination_to-begin"> << </span>
-      <span class="pagination_back"> < </span>
-      <span class="pagination_number">1</span>
-      <span class="pagination_forward"> > </span>
-      <span class="pagination_to-end"> >> </span>
-    </span>
+    </section>
   </main>
+
   <footer class="footer" id="footer">
-    <div class="contacts">
-      <h3>For questions and suggestions</h3>
-      <div class="contacts__e-mail">
-        <a href="mailto:email@shelter.com" class="email__link">email@shelter.com</a>
+    <div class="wrapper footer__wrapper">
+      <div class="contacts">
+        <h3>For questions and suggestions</h3>
+        <div class="contacts__e-mail">
+          <a href="mailto:email@shelter.com" class="footer__link footer_email">email@shelter.com</a>
+        </div>
+        <div class="contacts__phone">
+          <a href="tel:+13 674 567 75 54" class="footer__link footer_phone">+13 674 567 75 54</a>
+        </div>
       </div>
-      <div class="contacts__phone">
-        <a href="tel:+13 674 567 75 54" class="phone__number">+13 674 567 75 54</a>
+      <div class="address">
+        <h3>We are waiting for your visit</h3>
+        <a href="https://goo.gl/maps/ziToLig8cER9Pr5S9" target="_blank" class="footer__link footer_adress">1 Central Street, Boston (entrance from the store)</a>
+        <a href="https://goo.gl/maps/k31S2aBhHXtfkxZi8" target="_blank" class="footer__link footer_adress">18 South Park, London</a>
       </div>
-    </div>
-    <div class="address">
-      <h3>We are waiting for your visit</h3>
-      <a href="https://goo.gl/maps/ziToLig8cER9Pr5S9" target="_blank" class="adress__link">1 Central Street, Boston (entrance from the store)</a>
-      <a href="https://goo.gl/maps/k31S2aBhHXtfkxZi8" target="_blank" class="address__link">18 South Park, London</a>
     </div>
   </footer>
 </body>

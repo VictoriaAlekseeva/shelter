@@ -1,0 +1,52 @@
+.navigation {
+  display: flex;
+  gap: 36px;
+}
+
+.navigation__item {
+  list-style: none;
+
+}
+
+.navigation__link {
+  @include font (15px, 24px);
+  @extend %font-add;
+
+  letter-spacing: 0px;
+  text-align: left;
+  color: $color-dark-s;
+  padding-bottom: 2px;
+
+  @extend %transition;
+
+  &:active {
+    color: $color-light-s;
+    border-bottom: 3px solid $color-primary;
+  }
+
+  &:hover {
+    color: $color-light-s;
+  }
+
+
+  &_pets {
+    color: $color-dark-l;
+
+    &:hover {
+      color: $color-dark-3xl;
+      background-color: $color-dark-s;
+    }
+  }
+}
+
+
+
+.navigation__link_active {
+  cursor: default;
+  color: $color-light-s;
+  border-bottom: 3px solid $color-primary;
+
+  &_pets {
+    color: $color-dark-3xl;
+  }
+}

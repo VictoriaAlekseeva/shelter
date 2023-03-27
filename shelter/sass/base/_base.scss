@@ -1,14 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-size: 1.5 rem;
-  font-family: Georgia;
-  font-weight: normal;
+  @extend %font-main;
+
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.wrapper {
-  width: 1200px;
-  margin: 0 auto;
+a {
+  text-decoration: none;
 }
+
+h1 {
+  @include font (3.2rem, 3.5rem);
+
+  text-align: left;
+  color: $color-primary;
+}
+
+h2 {
+  @include font (4.4rem, 5.7rem);
+
+  letter-spacing: 0em;
+  text-align: left;
+  color: $color-light-xl;
+}
+
+h3 {
+  @include font (3.5rem, 4.5rem);
+  letter-spacing: 0.06em;
+  text-align: left;
+  color: $color-dark-l;
+}
+
+h4 {
+  @include font (2rem, 2.2rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+p {
+  @include font (1.5rem, 2.4rem);
+
+  @extend %font-add;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+
