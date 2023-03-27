@@ -1,3 +1,58 @@
 .in-addition {
   background-color: $color-light-l;
 }
+
+.in-addition__wrapper {
+  padding: 60px 143px 80px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+
+  h3 {
+    max-width: 80%;
+  }
+}
+
+.addition__description {
+  @include font (1.5rem, 1.7rem);
+
+  letter-spacing: 0.06em;
+  text-align: left;
+
+  margin: 20px 0;
+}
+
+.addition__legal {
+  @include font (1.2rem, 1.8rem);
+
+  font-style: italic;
+
+  letter-spacing: 0px;
+  text-align: left;
+
+  margin-top: 20px;
+  color: $color-dark-m;
+}
+
+.addition__card-link {
+  display: block;
+  width: 350px;
+  height: 45px;
+  border-radius: 9px;
+  background-color: $color-primary;
+  background-image: url('../src/img/svg/icons/credit-card.svg');
+  background-position: 15px center;
+  background-repeat: no-repeat;
+
+  padding: 10px 15px;
+
+  @include font (2rem, 2.3rem);
+  text-align: right;
+  letter-spacing: 0.06em;
+  color: $color-dark-l;
+
+  text-decoration: none;
+
+
+}

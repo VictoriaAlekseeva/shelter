@@ -268,6 +268,59 @@ p {
   background-color: #F6F6F6;
 }
 
+.in-addition__wrapper {
+  padding: 60px 143px 80px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.in-addition__wrapper h3 {
+  max-width: 80%;
+}
+
+.addition__description {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.7rem;
+  letter-spacing: 0.06em;
+  text-align: left;
+  margin: 20px 0;
+}
+
+.addition__legal {
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.8rem;
+  font-style: italic;
+  letter-spacing: 0px;
+  text-align: left;
+  margin-top: 20px;
+  color: #B2B2B2;
+}
+
+.addition__card-link {
+  display: block;
+  width: 350px;
+  height: 45px;
+  border-radius: 9px;
+  background-color: #F1CDB3;
+  background-image: url("../src/img/svg/icons/credit-card.svg");
+  background-position: 15px center;
+  background-repeat: no-repeat;
+  padding: 10px 15px;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.3rem;
+  text-align: right;
+  letter-spacing: 0.06em;
+  color: #545454;
+  text-decoration: none;
+}
+
 .logo-link {
   font-size: 32px;
   font-style: normal;
