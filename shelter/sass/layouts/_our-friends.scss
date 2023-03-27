@@ -69,16 +69,18 @@
 
   &:hover {
     cursor: pointer;
-    scale: 105%;
     @extend %transition;
-    box-shadow: 4px 4px 8px 5px rgba(241, 205, 179, 0.4);
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 
     .button-link_bordered {
       background-color: $color-primary-light;
       border-color: $color-primary-light;
       color: $color-dark-3xl;
     }
+  }
 
+  &:active {
+    opacity: 0.7;
   }
 }
 

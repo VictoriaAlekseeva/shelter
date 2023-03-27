@@ -235,13 +235,15 @@ p {
 }
 .friends__card:hover {
   cursor: pointer;
-  scale: 105%;
-  box-shadow: 4px 4px 8px 5px rgba(241, 205, 179, 0.4);
+  box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 .friends__card:hover .button-link_bordered {
   background-color: #FDDCC4;
   border-color: #FDDCC4;
   color: #292929;
+}
+.friends__card:active {
+  opacity: 0.7;
 }
 
 .friend__img {
