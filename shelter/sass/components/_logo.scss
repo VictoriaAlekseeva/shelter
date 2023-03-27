@@ -1,5 +1,4 @@
 .logo-link {
-
   @include font (32px, 35px);
   letter-spacing: 0.06em;
   text-align: center;
@@ -34,4 +33,13 @@
   color: $color-light-xl;
   margin-top: 8px;
   text-align: center;
+
+  &_pets {
+    color: $color-dark-3xl;
+
+  }
+}
+
+.logo__header_pets {
+  color: $color-dark-l
 }
