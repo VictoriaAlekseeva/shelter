@@ -1,31 +1,37 @@
 .button-link {
   display: block;
 
-  @include font (17px, 22px);
+  @include font (1.7rem, 2rem);
 
   text-decoration: none;
   letter-spacing: 0.06em;
   text-align: center;
   color: $color-dark-3xl;
-  // width: 207px;
-  // height: 52px;
   border-radius: 100px;
-  padding: 15px 44px;
-  border-color: $color-primary;
+  padding: 14px 43px;
   cursor: pointer;
   width: fit-content;
 
   &_colored {
     background-color: $color-primary;
-
-    &:hover {
-      background-color: $color-primary-light;
-      color: $color-dark-3xl;
-    }
+    border: 2px solid $color-primary;
   }
 
   &_bordered {
     border: 2px solid $color-primary;
+    background-color: transparent;
+  }
+
+  &:hover {
+    background-color: $color-primary-light;
+    border-color: $color-primary-light;
+    color: $color-dark-3xl;
+  }
+
+  &:active {
+    background-color: $color-primary;
+    border: 2px solid $color-primary;
+    box-shadow: 8px 8px 6px -4px rgba(0, 0, 0, 0.2);
   }
 }
 

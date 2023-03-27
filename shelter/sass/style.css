@@ -393,6 +393,29 @@ p {
   background-size: contain;
 }
 
+.our-friends-pets {
+  background-color: #F6F6F6;
+}
+
+.our-friends-pets__wrapper {
+  padding: 80px 0 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.our-friends-pets__wrapper h3 {
+  width: 400px;
+  text-align: center;
+}
+
+.friends-cards__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 27px;
+  margin: 60px 0 57px;
+}
+
 .logo-link {
   font-size: 32px;
   font-style: normal;
@@ -484,29 +507,61 @@ p {
 
 .button-link {
   display: block;
-  font-size: 17px;
+  font-size: 1.7rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 2rem;
   text-decoration: none;
   letter-spacing: 0.06em;
   text-align: center;
   color: #292929;
   border-radius: 100px;
-  padding: 15px 44px;
-  border-color: #F1CDB3;
+  padding: 14px 43px;
   cursor: pointer;
   width: fit-content;
 }
 .button-link_colored {
   background-color: #F1CDB3;
-}
-.button-link_colored:hover {
-  background-color: #FDDCC4;
-  color: #292929;
+  border: 2px solid #F1CDB3;
 }
 .button-link_bordered {
   border: 2px solid #F1CDB3;
+  background-color: transparent;
+}
+.button-link:hover {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+  color: #292929;
+}
+.button-link:active {
+  background-color: #F1CDB3;
+  border: 2px solid #F1CDB3;
+  box-shadow: 8px 8px 6px -4px rgba(0, 0, 0, 0.2);
+}
+
+.pagination__item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  margin: 0 8px;
+}
+.pagination__item_inactive {
+  border: 2px solid #CDCDCD;
+  color: #CDCDCD;
+}
+.pagination__item_active {
+  border: 2px solid #F1CDB3;
+  color: #292929;
+}
+.pagination__item_active_page-number {
+  background-color: #F1CDB3;
 }
 
 /*# sourceMappingURL=style.css.map */
