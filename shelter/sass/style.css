@@ -242,6 +242,9 @@ p {
   border-color: #FDDCC4;
   color: #292929;
 }
+.friends__card:active {
+  opacity: 0.7;
+}
 
 .friend__img {
   height: 270px;

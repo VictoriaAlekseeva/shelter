@@ -77,7 +77,10 @@
       border-color: $color-primary-light;
       color: $color-dark-3xl;
     }
+  }
 
+  &:active {
+    opacity: 0.7;
   }
 }
 
