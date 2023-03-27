@@ -200,6 +200,16 @@ p {
   position: absolute;
   top: calc(50% - 26px);
 }
+.arrow:hover {
+  cursor: pointer;
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
+}
+.arrow:active {
+  cursor: pointer;
+  border: 2px solid #F1CDB3;
+  background-color: #F1CDB3;
+}
 .arrow_left {
   background-image: url(../src/img/svg/Arrow_left.svg);
   left: 0;
