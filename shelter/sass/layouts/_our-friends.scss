@@ -34,6 +34,18 @@
   position: absolute;
   top: calc(50% - 26px);
 
+  &:hover {
+    cursor: pointer;
+    border: 2px solid $color-primary-light;
+    background-color: $color-primary-light;
+  }
+
+  &:active {
+    cursor: pointer;
+    border: 2px solid $color-primary;
+    background-color: $color-primary;
+  }
+
   &_left {
     background-image: url(../src/img/svg/Arrow_left.svg);
     left: 0;
@@ -54,6 +66,20 @@
   background-color: $color-light-s;
   border-radius: 9px;
   padding-bottom: 30px;
+
+  &:hover {
+    cursor: pointer;
+    scale: 105%;
+    @extend %transition;
+    box-shadow: 4px 4px 8px 5px rgba(241, 205, 179, 0.4);
+
+    .button-link_bordered {
+      background-color: $color-primary-light;
+      border-color: $color-primary-light;
+      color: $color-dark-3xl;
+    }
+
+  }
 }
 
 .friend__img {

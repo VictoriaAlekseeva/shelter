@@ -28,18 +28,14 @@
     color: $color-light-s;
   }
 
-
   &_pets {
     color: $color-dark-l;
 
     &:hover {
       color: $color-dark-3xl;
-      background-color: $color-dark-s;
     }
   }
 }
-
-
 
 .navigation__link_active {
   cursor: default;
@@ -48,5 +44,9 @@
 
   &_pets {
     color: $color-dark-3xl;
+
+    &:hover {
+      color: $color-dark-3xl;
+    }
   }
 }
