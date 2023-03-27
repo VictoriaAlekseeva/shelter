@@ -573,8 +573,19 @@ p {
   border: 2px solid #F1CDB3;
   color: #292929;
 }
-.pagination__item_active_page-number {
+.pagination__item_active:hover {
+  cursor: pointer;
+  border: 2px solid #FDDCC4;
+  background-color: #FDDCC4;
+}
+.pagination__item_active:active {
+  border: 2px solid #F1CDB3;
   background-color: #F1CDB3;
+}
+.pagination__item_active_page-number, .pagination__item_active_page-number:hover, .pagination__item_active_page-number:active {
+  cursor: default;
+  background-color: #F1CDB3;
+  border: 2px solid #F1CDB3;
 }
 
 /*# sourceMappingURL=style.css.map */

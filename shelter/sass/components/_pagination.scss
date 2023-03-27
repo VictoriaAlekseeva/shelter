@@ -18,11 +18,22 @@
     border: 2px solid $color-primary;
     color: $color-dark-3xl;
 
-    &_page-number {
+    &:hover {
+      cursor: pointer;
+      border: 2px solid $color-primary-light;
+      background-color: $color-primary-light;
+    }
+
+    &:active {
+      border: 2px solid $color-primary;
       background-color: $color-primary;
     }
+
+    &_page-number, &_page-number:hover, &_page-number:active {
+      cursor: default;
+      background-color: $color-primary;
+      border: 2px solid $color-primary;
+    }
   }
-
-
 }
 
