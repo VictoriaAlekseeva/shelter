@@ -1,27 +1,43 @@
 @font-face {
-  font-family: Georgia;
-  src: url(../src/fonts/georgia/georgia-regular.ttf);
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: Georgia;
-  src: url(../src/fonts/georgia/georgia-italic.ttf);
+  font-family: 'Arial';
+  src: local('Arial Italic'), local('Arial-ItalicMT'),
+      url('../src/fonts/arial/Arial-ItalicMT.woff2') format('woff2'),
+      url('../src/fonts/arial/Arial-ItalicMT.woff') format('woff'),
+      url('../src/fonts/arial/Arial-ItalicMT.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: Arial;
-  src: url(../src/fonts/arial/arial-regular.ttf);
+  font-family: 'Arial';
+  src: local('Arial'), local('ArialMT'),
+      url('../src/fonts/arial/ArialMT.woff2') format('woff2'),
+      url('../src/fonts/arial/ArialMT.woff') format('woff'),
+      url('../src/fonts/arial/ArialMT.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: Arial;
-  src: url(../src/fonts/arial/arial-italic.ttf);
+  font-family: 'Georgia';
+  src: local('Georgia'),
+      url('../src/fonts/georgia/Georgia.woff2') format('woff2'),
+      url('../src/fonts/georgia/Georgia.woff') format('woff'),
+      url('../src/fonts/georgia/Georgia.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Georgia';
+  src: local('Georgia Italic'), local('Georgia-Italic'),
+      url('../src/fonts/georgia/Georgia-Italic.woff2') format('woff2'),
+      url('../src/fonts/georgia/Georgia-Italic.woff') format('woff'),
+      url('../src/fonts/georgia/Georgia-Italic.ttf') format('truetype');
   font-weight: 400;
   font-style: italic;
+  font-display: swap;
 }
