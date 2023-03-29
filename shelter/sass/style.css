@@ -26,7 +26,7 @@
   font-style: italic;
   font-display: swap;
 }
-.navigation__link, .logo-link, .friends__card:hover {
+.pagination__item, .button-link, .navigation__link, .logo-link, .friends__card:hover {
   transition: all 0.3s ease-out;
 }
 

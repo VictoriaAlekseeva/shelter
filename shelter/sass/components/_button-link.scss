@@ -3,6 +3,7 @@
 
   @include font (1.7rem, 2rem);
   @extend %font-main;
+  @extend %transition;
 
   text-decoration: none;
   letter-spacing: 0.06em;
