@@ -351,6 +351,16 @@ p {
   color: #545454;
   text-decoration: none;
 }
+.addition__card-link:hover {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+  color: #292929;
+}
+.addition__card-link:active {
+  background-color: #F1CDB3;
+  border: 2px solid #F1CDB3;
+  box-shadow: 8px 8px 6px -4px rgba(0, 0, 0, 0.2);
+}
 
 .footer {
   background-image: url("../src/img/background/noise_transparent.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%);
@@ -397,6 +407,9 @@ p {
   line-height: 2.3rem;
   letter-spacing: 0.06em;
   text-align: left;
+}
+.footer__link:hover, .footer__link:focus {
+  opacity: 0.5;
 }
 
 .footer__icon {

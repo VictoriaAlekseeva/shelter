@@ -45,6 +45,11 @@
 
   letter-spacing: 0.06em;
   text-align: left;
+
+  &:hover,
+  &:focus {
+  opacity: 0.5;
+}
 }
 
 .footer__icon {
