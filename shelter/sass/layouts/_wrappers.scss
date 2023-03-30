@@ -1,4 +1,5 @@
 .wrapper {
-  width: 1200px;
+  max-width: $content-width-desktop;
   margin: 0 auto;
+  padding: 0 40px;
 }

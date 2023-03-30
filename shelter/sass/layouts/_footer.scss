@@ -9,11 +9,11 @@
   gap: 140px;
 
   height: 350px;
-  padding: 60px 0;
+  padding: 60px 40px;
 
   background-image: url('../src/img/background/footer-puppy.png');
   background-repeat: no-repeat;
-  background-position: right 40px;
+  background-position: 96% bottom;
   background-size: contain 90%;
 
   h3 {
@@ -45,11 +45,6 @@
 
   letter-spacing: 0.06em;
   text-align: left;
-
-  &:hover,
-  &:focus {
-  opacity: 0.5;
-}
 }
 
 .footer__icon {
