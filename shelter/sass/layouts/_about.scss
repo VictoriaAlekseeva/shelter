@@ -3,11 +3,17 @@
 }
 
 .about__wrapper {
-  padding: 80px 215px 100px;
+  padding: 80px 0 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 120px;
+  width: 56%;
+
+  @media (max-width: 991px) {
+    flex-direction: column-reverse;
+    gap: 80px;
+  }
 }
 
 .about__text {
