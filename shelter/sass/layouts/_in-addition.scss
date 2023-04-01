@@ -16,9 +16,9 @@
   }
 
   @media (max-width: 991px) {
-    width: 65%;
+    width: 66%;
     flex-direction: column-reverse;
-    gap: 55px;
+    gap: 60px;
   }
 }
 
@@ -31,6 +31,7 @@
 
 .addition__text {
   @media (max-width: 991px) {
+    min-width: 380px;
     width: 75%;
   }
 }

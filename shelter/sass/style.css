@@ -412,9 +412,9 @@ p {
 }
 @media (max-width: 991px) {
   .in-addition__wrapper {
-    width: 65%;
+    width: 66%;
     flex-direction: column-reverse;
-    gap: 55px;
+    gap: 60px;
   }
 }
 
@@ -427,6 +427,7 @@ p {
 
 @media (max-width: 991px) {
   .addition__text {
+    min-width: 380px;
     width: 75%;
   }
 }
