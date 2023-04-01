@@ -206,6 +206,7 @@ p {
 }
 @media (max-width: 991px) {
   .about__wrapper {
+    width: 56%;
     flex-direction: column-reverse;
     gap: 80px;
   }
