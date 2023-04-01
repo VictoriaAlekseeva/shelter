@@ -202,7 +202,7 @@ p {
   justify-content: center;
   align-items: center;
   gap: 120px;
-  width: 57%;
+  width: 60%;
 }
 @media (max-width: 991px) {
   .about__wrapper {
