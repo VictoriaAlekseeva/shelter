@@ -243,8 +243,8 @@ p {
 @media (max-width: 991px) {
   .friends__wrapper {
     padding: 60px 64px;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: center;
+    gap: 40px;
   }
 }
 
