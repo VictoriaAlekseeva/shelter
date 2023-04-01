@@ -17,14 +17,27 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  // margin-top: 40px;
+  gap: 120px;
+  row-gap: 55px;
+  margin: 65px auto 0;
+  width: 90%;
+
+  @media (max-width: 991px) {
+    gap: 60px;
+    row-gap: 58px;
+  }
 }
 
 .help__items {
   @include font (2rem, 2.3rem);
   letter-spacing: 0.06em;
   text-align: center;
-  margin: 60px 60px 0px;
+  width: fit-content;
+
+  @media (max-width: 991px) {
+    width: 170px;
+    justify-content: space-between;
+  }
 }
 
 .help__icon {
