@@ -16,14 +16,22 @@
   }
 
   @media (max-width: 991px) {
+    width: 65%;
     flex-direction: column-reverse;
     gap: 55px;
   }
 }
 
+.addition__img {
+  @media (max-width: 991px) {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .addition__text {
   @media (max-width: 991px) {
-    width: 70%;
+    width: 75%;
   }
 }
 
@@ -32,18 +40,26 @@
   letter-spacing: 0.06em;
   text-align: left;
   margin: 20px 0;
+
+  @media (max-width: 991px) {
+    width: 100%;
+    margin: 18px 0;
+  }
 }
 
 .addition__legal {
   @include font (1.2rem, 1.8rem);
 
   font-style: italic;
-
   letter-spacing: 0px;
   text-align: left;
 
   margin-top: 20px;
   color: $color-dark-m;
+
+  @media (max-width: 991px) {
+    width: 100%;
+  }
 }
 
 .addition__card-link {
@@ -76,5 +92,4 @@
     border: 2px solid $color-primary;
     box-shadow: 8px 8px 6px -4px rgba(0, 0, 0, 0.2);
   }
-
 }

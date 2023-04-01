@@ -12,7 +12,7 @@
   max-width: 930px;
 
   @media (max-width: 991px) {
-    width: 56%;
+    width: 80%;
     flex-direction: column-reverse;
     gap: 80px;
   }
@@ -21,6 +21,11 @@
 .about__description {
   width: 61%;
   max-width: 430px;
+
+  @media (max-width: 991px) {
+    width: 80%;
+    max-width: none;
+  }
 }
 
 .about__text {
@@ -31,6 +36,10 @@
   width: 36%;
   max-width: 300px;
   height: fit-content;
+
+  @media (max-width: 991px) {
+    width: 100%;
+  }
 }
 
 
