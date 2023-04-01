@@ -6,33 +6,51 @@
 
 .footer__wrapper {
   display: flex;
-  gap: 140px;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 
-  height: 350px;
-  padding: 60px 40px;
-
-  background-image: url('../src/img/background/footer-puppy.png');
-  background-repeat: no-repeat;
-  background-position: 96% bottom;
-  background-size: contain 90%;
+  padding: 40px 40px 0;
 
   h3 {
     color: $color-light-xl;
   }
+
+  @media (max-width: 991px) {
+    justify-content: space-evenly;
+    gap: 30px;
+    padding-top: 32px;
+  }
 }
 
 .contacts {
-  width: 25%;
+  width: 280px;
   display: flex;
   flex-direction: column;
+  gap: 32px;
+  padding-top: 16px;
+  padding-bottom: 60px;
   justify-content: space-between;
+
+  @media (max-width: 991px) {
+    padding-top: 0px;
+    padding-bottom: 35px;
+  }
 }
 
 .address {
-  width: 25%;
+  width: 302px;
   display: flex;
   flex-direction: column;
+  gap: 32px;
+  padding-top: 16px;
+  padding-bottom: 60px;
   justify-content: space-between;
+
+  @media (max-width: 991px) {
+    padding-top: 0px;
+    padding-bottom: 35px;
+  }
 }
 
 .footer__link {
@@ -49,4 +67,11 @@
 
 .footer__icon {
   height: 32px;
+}
+
+.footer__img {
+  display: block;
+  width: 300px;
+  height: fit-content;
+  align-self: flex-end;
 }
