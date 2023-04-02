@@ -18,7 +18,7 @@
     gap: 100px;
   }
 
-  
+
 }
 
 .not-only__img {
@@ -31,6 +31,11 @@
     align-self: end;
     padding-top: 5px;
   }
+
+  @media (max-width: 489px) {
+    max-width: none;
+    width: 87%;
+  }
 }
 
 .not-only__text {
@@ -40,6 +45,10 @@
   @media (max-width: 991px) {
     width: 65%;
     padding-bottom: 0px;
+  }
+
+  @media (max-width: 489px) {
+    width: 100%;
   }
 }
 

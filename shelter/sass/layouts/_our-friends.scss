@@ -12,6 +12,17 @@
   h3 {
     width: 400px;
     text-align: center;
+
+    @media (max-width: 489px) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 489px) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    width: 100%;
+    gap: 5px;
   }
 }
 
@@ -28,6 +39,12 @@
     justify-content: center;
     gap: 40px;
   }
+
+  @media (max-width: 489px) {
+    width: 100%;
+    padding: 40px 15px;
+    margin-bottom: 70px;
+  }
 }
 
 .arrow {
@@ -42,6 +59,10 @@
 
   position: absolute;
   top: calc(50% - 26px);
+
+  @media (max-width: 489px) {
+    top: calc(100% - 20px);
+  }
 
   &:hover {
     cursor: pointer;
@@ -58,11 +79,19 @@
   &_left {
     background-image: url(../src/img/svg/Arrow_left.svg);
     left: 0;
+
+    @media (max-width: 489px) {
+      left: calc(30% - 34px);
+    }
   }
 
   &_right {
     background-image: url(../src/img/svg/Arrow_right.svg);
     right: 0;
+
+    @media (max-width: 489px) {
+      right: calc(30% - 34px);
+    }
   }
 }
 
@@ -75,6 +104,10 @@
   background-color: $color-light-s;
   border-radius: 9px;
   padding-bottom: 30px;
+
+  @media (max-width: 489px) {
+    width: 100%;
+  }
 
   &:hover {
     cursor: pointer;
@@ -95,7 +128,7 @@
 }
 
 .friend__img {
-  // height: 270px;
+  height: auto;
   width: 100%;
 }
 
@@ -105,6 +138,12 @@
 
 .friends__card_hide991 {
   @media (max-width: 991px) {
+    display: none;
+  }
+}
+
+.friends__card_hide489 {
+  @media (max-width: 489px) {
     display: none;
   }
 }
