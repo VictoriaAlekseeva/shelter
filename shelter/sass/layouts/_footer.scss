@@ -21,6 +21,13 @@
     gap: 30px;
     padding-top: 32px;
   }
+
+  @media (max-width: 489px) {
+    padding-left: 10px;
+    padding-right: 10px;
+    gap: 40px;
+  }
+
 }
 
 .contacts {
@@ -36,6 +43,12 @@
     padding-top: 0px;
     padding-bottom: 35px;
   }
+
+  @media (max-width: 489px) {
+    align-items: center;
+    gap: 40px;
+    padding-bottom: 0px;
+  }
 }
 
 .address {
@@ -50,6 +63,17 @@
   @media (max-width: 991px) {
     padding-top: 0px;
     padding-bottom: 35px;
+  }
+
+  @media (max-width: 489px) {
+    align-items: flex-start;
+    gap: 40px;
+    padding-bottom: 0px;
+
+    h3 {
+      width: 80%;
+      margin: auto;
+    }
   }
 }
 
@@ -74,4 +98,8 @@
   width: 300px;
   height: fit-content;
   align-self: flex-end;
+
+  @media (max-width: 489px) {
+    width: 260px;
+  }
 }
