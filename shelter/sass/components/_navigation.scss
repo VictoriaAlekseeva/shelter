@@ -1,6 +1,10 @@
 .navigation {
   display: flex;
   gap: 36px;
+
+  @media (max-width: 760px) {
+    display: none;
+  }
 }
 
 .navigation__item {
