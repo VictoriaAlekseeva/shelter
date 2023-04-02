@@ -411,7 +411,7 @@ p {
 @media (max-width: 489px) {
   .not-only__img {
     max-width: none;
-    width: 87%;
+    width: 87.5%;
   }
 }
 
@@ -481,7 +481,7 @@ p {
 }
 @media (max-width: 991px) {
   .about__description {
-    width: 80%;
+    width: 77%;
     max-width: none;
   }
 }
@@ -498,7 +498,7 @@ p {
 @media (max-width: 489px) {
   .about__text {
     text-align: justify;
-    margin-top: 23px;
+    margin-top: 24px;
   }
 }
 
@@ -543,7 +543,7 @@ p {
     padding-top: 42px;
     padding-bottom: 42px;
     width: 100%;
-    gap: 5px;
+    gap: 0px;
   }
 }
 
@@ -566,7 +566,7 @@ p {
   .friends__wrapper {
     width: 100%;
     padding: 40px 15px;
-    margin-bottom: 70px;
+    margin-bottom: 75px;
   }
 }
 
@@ -815,7 +815,7 @@ p {
 @media (max-width: 489px) {
   .addition__img {
     min-width: 260px;
-    width: 80%;
+    width: 85%;
     height: auto;
   }
 }
