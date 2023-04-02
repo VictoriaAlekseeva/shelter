@@ -302,7 +302,6 @@ p {
   display: inline-block;
   content: "";
   position: absolute;
-  background-color: #F1CDB3;
   width: 100%;
   height: 2px;
 }
@@ -336,6 +335,18 @@ p {
 
 .burger-menu__line {
   top: calc(50% - 1px);
+}
+
+.burger-menu__button:before,
+.burger-menu__line,
+.burger-menu__button:after {
+  background-color: #F1CDB3;
+}
+
+.burger-menu__button_pets:before,
+.burger-menu__line_pets,
+.burger-menu__button_pets:after {
+  background-color: #000000;
 }
 
 .wrapper {
@@ -1056,6 +1067,11 @@ p {
 .our-friends-pets__wrapper h3 {
   width: 400px;
   text-align: center;
+}
+@media (max-width: 489px) {
+  .our-friends-pets__wrapper h3 {
+    width: 100%;
+  }
 }
 @media (max-width: 991px) {
   .our-friends-pets__wrapper {
