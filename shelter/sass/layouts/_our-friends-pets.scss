@@ -21,6 +21,11 @@
   @media (max-width: 991px) {
     padding-bottom: 75px;
   }
+
+  @media (max-width: 489px) {
+    padding-top: 160px;
+    padding-bottom: 40px;
+  }
 }
 
 .friends-cards__wrapper {
@@ -36,5 +41,10 @@
     margin: 30px 0 45px;
     column-gap: 40px;
     row-gap: 30px;
+  }
+
+  @media (max-width:489px) {
+    width: 90%;
+    margin-top: 45px;
   }
 }

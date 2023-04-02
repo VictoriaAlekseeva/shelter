@@ -275,6 +275,11 @@ p {
   line-height: 2rem;
   margin: 0 8px;
 }
+@media (max-width: 489px) {
+  .pagination__item {
+    margin: 0 2.5px;
+  }
+}
 .pagination__item_inactive {
   border: 2px solid #CDCDCD;
   color: #CDCDCD;
@@ -1078,6 +1083,12 @@ p {
     padding-bottom: 75px;
   }
 }
+@media (max-width: 489px) {
+  .our-friends-pets__wrapper {
+    padding-top: 160px;
+    padding-bottom: 40px;
+  }
+}
 
 .friends-cards__wrapper {
   display: flex;
@@ -1092,6 +1103,12 @@ p {
     margin: 30px 0 45px;
     column-gap: 40px;
     row-gap: 30px;
+  }
+}
+@media (max-width: 489px) {
+  .friends-cards__wrapper {
+    width: 90%;
+    margin-top: 45px;
   }
 }
 
