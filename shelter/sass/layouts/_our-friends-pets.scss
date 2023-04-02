@@ -13,6 +13,10 @@
     width: 400px;
     text-align: center;
   }
+
+  @media (max-width: 991px) {
+    padding-bottom: 75px;
+  }
 }
 
 .friends-cards__wrapper {
@@ -22,4 +26,11 @@
   gap: 30px;
 
   margin: 60px 0;
+
+  @media (max-width: 991px) {
+    justify-content: center;
+    margin: 30px 0 45px;
+    column-gap: 40px;
+    row-gap: 30px;
+  }
 }
