@@ -3,36 +3,117 @@
 }
 
 .in-addition__wrapper {
-  padding: 60px 143px 80px;
+  padding-top: 80px;
+  padding-bottom: 100px;
   display: flex;
   gap: 30px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  width: 90%;
+  max-width: 995px;
 
   h3 {
+    margin-top: 3px;
     max-width: 80%;
+
+    @media (max-width: 991px) {
+      margin-top: 0px;
+    }
+
+    @media (max-width: 489px) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 991px) {
+    width: 80%;
+    flex-direction: column-reverse;
+    gap: 60px;
+  }
+
+  @media (max-width: 489px) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    width: 100%;
+    gap: 43px;
+  }
+}
+
+.addition__img {
+  width: 55%;
+  max-width: 505px;
+  height: auto;
+
+  @media (max-width: 991px) {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 489px) {
+    min-width: 260px;
+    width: 85%;
+    height: auto;
+  }
+}
+
+.addition__text {
+  width: 40%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+
+  @media (max-width: 991px) {
+    min-width: 300px;
+    width: 68%;
+  }
+
+  @media (max-width: 489px) {
+    min-width: 281px;
+    width: 90%;
+
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .addition__description {
-  @include font (1.5rem, 1.7rem);
-
+  @include font (1.5rem, 1.65rem);
   letter-spacing: 0.06em;
   text-align: left;
-
   margin: 20px 0;
+
+  @media (max-width: 991px) {
+    width: 100%;
+    margin: 18px 0;
+  }
+
+  @media (max-width: 489px) {
+    @include font (1.5rem, 2.4rem);
+    letter-spacing: 0;
+    text-align: center;
+    margin: 20px 0;
+  }
 }
 
 .addition__legal {
   @include font (1.2rem, 1.8rem);
 
   font-style: italic;
-
   letter-spacing: 0px;
   text-align: left;
 
-  margin-top: 20px;
+  margin-top: 18px;
   color: $color-dark-m;
+
+  @media (max-width: 991px) {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 468px) {
+    text-align: justify;
+  }
 }
 
 .addition__card-link {
@@ -66,4 +147,13 @@
     box-shadow: 8px 8px 6px -4px rgba(0, 0, 0, 0.2);
   }
 
+  @media (max-width: 489px) {
+    @include font (1.5rem, 2.2rem);
+    letter-spacing: 0.06em;
+
+    width: 281px;
+    height: 42px;
+
+    background-size: 10%;
+  }
 }

@@ -2,15 +2,27 @@
   background-color: $color-light-l;
 }
 
-.our-friends__wrapper {
-  padding: 80px 0 100px;
+.our-friends__wrapper { // double for our-friends-pets__wrapper
+  padding-top: 80px;
+  padding-bottom: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   h3 {
-    text-align: center;
     width: 400px;
+    text-align: center;
+
+    @media (max-width: 489px) {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 489px) {
+    padding-top: 42px;
+    padding-bottom: 42px;
+    width: 100%;
+    gap: 0px;
   }
 }
 
@@ -18,7 +30,21 @@
   position: relative;
   display: flex;
   padding: 60px 105px;
-  gap: 90px;
+  width: 100%;
+  gap: 10px;
+  justify-content: space-between;
+
+  @media (max-width: 991px) {
+    padding: 60px 64px;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  @media (max-width: 489px) {
+    width: 100%;
+    padding: 40px 15px;
+    margin-bottom: 75px;
+  }
 }
 
 .arrow {
@@ -33,6 +59,10 @@
 
   position: absolute;
   top: calc(50% - 26px);
+
+  @media (max-width: 489px) {
+    top: calc(100% - 20px);
+  }
 
   &:hover {
     cursor: pointer;
@@ -49,11 +79,19 @@
   &_left {
     background-image: url(../src/img/svg/Arrow_left.svg);
     left: 0;
+
+    @media (max-width: 489px) {
+      left: calc(30% - 34px);
+    }
   }
 
   &_right {
     background-image: url(../src/img/svg/Arrow_right.svg);
     right: 0;
+
+    @media (max-width: 489px) {
+      right: calc(30% - 34px);
+    }
   }
 }
 
@@ -66,6 +104,10 @@
   background-color: $color-light-s;
   border-radius: 9px;
   padding-bottom: 30px;
+
+  @media (max-width: 489px) {
+    width: 100%;
+  }
 
   &:hover {
     cursor: pointer;
@@ -86,13 +128,23 @@
 }
 
 .friend__img {
-  height: 270px;
-  width: 270px;
+  height: auto;
+  width: 100%;
 }
 
 .friend__name {
   margin: 30px 0;
 }
 
+.friends__card_hide991 {
+  @media (max-width: 991px) {
+    display: none;
+  }
+}
 
+.friends__card_hide489 {
+  @media (max-width: 489px) {
+    display: none;
+  }
+}
 
