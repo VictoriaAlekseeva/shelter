@@ -4,6 +4,12 @@
 @import "abstract/placeholders";
 @import "base/base";
 
+@import "components/logo";
+@import "components/navigation";
+@import "components/_button-link";
+@import "components/pagination";
+@import "components/burger-menu";
+
 @import "layouts/wrappers";
 @import "layouts/header";
 @import "layouts/not-only";
@@ -15,9 +21,6 @@
 @import "layouts/our-friends-pets";
 
 
-@import "components/logo";
-@import "components/navigation";
-@import "components/_button-link";
-@import "components/pagination";
+
 
 

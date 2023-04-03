@@ -1,4 +1,13 @@
 .wrapper {
-  width: 1200px;
+  max-width: $content-width-desktop;
   margin: 0 auto;
+  padding: 0 40px;
+
+  @media (max-width: 991px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: 489px) {
+    padding: 0 10px;
+  }
 }

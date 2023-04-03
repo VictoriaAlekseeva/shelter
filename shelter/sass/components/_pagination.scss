@@ -11,6 +11,10 @@
 
   @extend %transition;
 
+  @media (max-width: 489px) {
+    margin: 0 2.5px;
+  }
+
   &_inactive {
     border: 2px solid $color-dark-s;
     color: $color-dark-s;
