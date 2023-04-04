@@ -182,7 +182,7 @@ p {
   display: flex;
   gap: 36px;
 }
-@media (max-width: 760px) {
+@media (max-width: 767px) {
   .navigation {
     display: none;
   }
@@ -314,7 +314,7 @@ p {
 .burger-menu {
   display: none;
 }
-@media (max-width: 760px) {
+@media (max-width: 767px) {
   .burger-menu {
     display: block;
   }
@@ -376,7 +376,7 @@ p {
   z-index: 1;
   width: 100%;
 }
-@media (max-width: 760px) {
+@media (max-width: 767px) {
   .header {
     padding: 30px 10px;
   }
