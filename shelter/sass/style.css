@@ -26,7 +26,7 @@
   font-style: italic;
   font-display: swap;
 }
-.friends__card:hover, .pagination__item, .button-link, .navigation__link, .logo-link {
+.friends__card:hover, .burger-menu__link, .pagination__item, .button-link, .navigation__link, .logo-link {
   transition: all 0.3s ease-out;
 }
 
@@ -34,7 +34,7 @@
   font-family: "Georgia", "Times New Roman", Times, serif;
 }
 
-.navigation__link, .logo__text, p {
+.burger-menu__link, .navigation__link, .logo__text, p {
   font-family: "Arial", Helvetica, sans-serif;
 }
 
@@ -53,6 +53,10 @@ body {
   font-size: 1.5rem;
   font-weight: 400;
   font-style: normal;
+}
+body.burger-menu_active {
+  height: 100vh;
+  overflow: hidden;
 }
 
 a {
@@ -318,14 +322,23 @@ p {
 @media (max-width: 767px) {
   .burger-menu {
     display: block;
+    right: -100%;
   }
+}
+.burger-menu_active .burger-menu__button {
+  top: 8;
+  transform: rotate(90deg);
+  transition: 0.5s;
 }
 
 .burger-menu__button {
   display: none;
   position: relative;
+  left: 0;
   width: 30px;
   height: 22px;
+  z-index: 10;
+  transition: 0.5s;
 }
 @media (max-width: 767px) {
   .burger-menu__button {
@@ -347,6 +360,82 @@ p {
 .burger-menu__line_pets,
 .burger-menu__line_pets:after {
   background-color: #000000;
+}
+
+.burger-menu__navigation {
+  padding-top: 248px;
+  position: fixed;
+  right: -100%;
+  width: 320px;
+  height: 100vh;
+  top: 0;
+  transition: 1s;
+}
+.burger-menu_active .burger-menu__navigation {
+  background-color: #292929;
+  right: 0%;
+  z-index: 3;
+  transition: 1s;
+}
+
+.burger-menu__list {
+  height: 327px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.burger-menu__item {
+  list-style: none;
+}
+
+.burger-menu__link {
+  font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 5.12rem;
+  letter-spacing: 0px;
+  text-align: center;
+  color: #CDCDCD;
+  padding-bottom: 6px;
+}
+.burger-menu__link:active {
+  color: #FAFAFA;
+  border-bottom: 3px solid #F1CDB3;
+}
+.burger-menu__link:hover {
+  color: #FAFAFA;
+}
+.burger-menu__link_pets {
+  color: #545454;
+}
+.burger-menu__link_pets:hover {
+  color: #292929;
+}
+
+.burger-menu__link_active {
+  cursor: default;
+  color: #FAFAFA;
+  border-bottom: 3px solid #F1CDB3;
+}
+.burger-menu__link_active_pets {
+  color: #292929;
+}
+.burger-menu__link_active_pets:hover {
+  color: #292929;
+}
+
+.burger-menu_active .burger-menu__overlay {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-color: #292929;
+  opacity: 0.6;
+  right: 0;
+  top: 0;
+  transition: 0.5s;
 }
 
 .wrapper {
