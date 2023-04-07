@@ -2,7 +2,7 @@
   display: inline-block;
   content: '';
   position: absolute;
-  // background-color: $color-primary;
+  background-color: $color-primary;
   width: 100%;
   height: 2px;
 }
@@ -24,31 +24,25 @@
   @media (max-width: 767px) {
     display: block;
   }
-
-  &:before {
-    @extend %burger-menu-line;
-    top: 0;
-  }
-
-  &:after {
-    @extend %burger-menu-line;
-    bottom: 0;
-  }
 }
 
 .burger-menu__line {
   @extend %burger-menu-line;
   top: calc(50% - 1px);
+
+  &:before {
+    @extend %burger-menu-line;
+    top: 10px;
+  }
+
+  &:after {
+    @extend %burger-menu-line;
+    bottom: 10px;
+  }
 }
 
-.burger-menu__button:before,
-.burger-menu__line,
-.burger-menu__button:after {
-  background-color: $color-primary;
-}
-
-.burger-menu__button_pets:before,
+.burger-menu__line_pets:before,
 .burger-menu__line_pets,
-.burger-menu__button_pets:after {
+.burger-menu__line_pets:after {
   background-color: #000000;
 }
