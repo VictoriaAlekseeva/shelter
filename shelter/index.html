@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="./favicon.ico">
   <link rel="stylesheet" href="./sass/style.css">
-  <script src="./index.js"></script>
   <title>Shelter</title>
 </head>
 <body>
@@ -25,9 +24,18 @@
         </ul>
       </nav>
       <div class="burger-menu">
+        <div class="burger-menu__overlay"></div>
         <div class="burger-menu__button">
           <span class="burger-menu__line"></span>
         </div>
+        <nav class="burger-menu__navigation">
+          <ul class="burger-menu__list">
+            <li class="burger-menu__item"><a href="#" class="burger-menu__link burger-menu__link_active">About the shelter</a></li>
+            <li class="burger-menu__item"><a href="./pets.html" class="burger-menu__link">Our pets</a></li>
+            <li class="burger-menu__item"><a href="#help" class="burger-menu__link">Help the shelter</a></li>
+            <li class="burger-menu__item"><a href="#footer" class="burger-menu__link">Contacts</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </header>
@@ -56,9 +64,30 @@
     </section>
     <section class="our-friends" id="our-friends">
       <div class="wrapper our-friends__wrapper">
-        <h3>Our friends who are&nbsp;looking for a house</h3>
+
+        <!-- modal begin -->
+        <!-- <div class="friends-modal__window">
+          <div class="friends-modal__overlay"></div>
+          <div class="friends-modal__card">
+            <span class = "friends-modal__close-button"></span>
+            <img src="./src/img/pets-jennifer.png" alt="Jennifer" class="friends-modal__img">
+            <div class="friends-modal__description">
+              <h3 class="friends-modal__name">Jennifer</h3>
+              <h4 class="friends-modal__type">Dog - Labrador</h4>
+              <p class="friends-modal__text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+              <ul class="friends-modal__list">
+                <li><span class="text-bold">Age:</span> 2 mounth</li>
+                <li><span class="text-bold">Inoculations:</span> none</li>
+                <li><span class="text-bold">Diseases:</span> none</li>
+                <li><span class="text-bold">Parasites:</span> none</li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+        <!-- modal end -->
+        <h3 class = "our-friends__header">Our friends who are&nbsp;looking for a house</h3>
+        <span class="arrow arrow_left"></span>
         <div class="friends__wrapper">
-          <span class="arrow arrow_left"></span>
           <div class="friends__card">
             <img src="./src/img/pets-katrine.png" alt="Katrine" class="friend__img">
             <h4 class="friend__name">Katrine</h4>
@@ -74,8 +103,8 @@
             <h4 class="friend__name">Woody</h4>
             <a class="button-link button-link_bordered">Learn more</a>
           </div>
-          <span class="arrow arrow_right"> </span>
         </div>
+        <span class="arrow arrow_right"> </span>
         <div class="friends__button">
           <a href="./pets.html" class="button-link button-link_colored">Get to know the rest</a>
         </div>
@@ -191,5 +220,6 @@
       <img src="./src/img/footer-puppy.png" alt="puppy" class="footer__img">
     </div>
   </footer>
+  <script src="./index.js" type="module"></script>
 </body>
 </html>

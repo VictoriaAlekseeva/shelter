@@ -41,3 +41,16 @@
   font-style: italic;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Georgia';
+  src: url('../src/fonts/georgia/Georgia-Bold.woff2') format('woff2'),
+      url('../src/fonts/georgia/Georgia-Bold.woff') format('woff'),
+      url('../src/fonts/georgia/Georgia-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
