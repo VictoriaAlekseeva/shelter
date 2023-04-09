@@ -141,6 +141,7 @@ const pets = [
   }
 ]
 
+
 function generateFriendsCard(id, img, name) {
   let template = `
   <img src=${img} alt=${name} class="friend__img">
@@ -162,19 +163,26 @@ const getFriendsWrapper = () => {
   return friendsWrapper;
 };
 
-const renderFriendCard = () => {
+const renderFriendCard = (num) => {
   let friendsWrapper = getFriendsWrapper();
 
-  for (let i = 0; i <3; i++) {
-    // let PetsCard = new PetsCard(pets[i].id, pets[i].img, pets[i].name);
-    // let newCard = PetsCard.generateFriendsCard();
+  for (let i = 0; i < num; i++) {
     let newCard = generateFriendsCard(pets[i].id, pets[i].img, pets[i].name)
     friendsWrapper.append(newCard);
   }
   return friendsWrapper;
 }
 
-renderFriendCard();
+const renderFriendCardMain = () => {
+  if (document.querySelector('.friends__wrapper')) renderFriendCard(3);
+}
+
+const renderFriendCardPets = () => {
+  if (document.querySelector('.friends-cards__wrapper')) renderFriendCard(8);
+}
+
+renderFriendCardMain();
+renderFriendCardPets();
 
 //modal window
 let ourFriendsWrapper = document.querySelector('.our-friends__wrapper') || document.querySelector('.our-friends-pets__wrapper');
