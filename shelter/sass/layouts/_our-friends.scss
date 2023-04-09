@@ -3,13 +3,14 @@
 }
 
 .our-friends__wrapper { // double for our-friends-pets__wrapper
+  position: relative;
   padding-top: 80px;
   padding-bottom: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  h3 {
+  .our-friends__header {
     width: 400px;
     text-align: center;
 
@@ -27,7 +28,7 @@
 }
 
 .friends__wrapper {
-  position: relative;
+  // position: relative;
   display: flex;
   padding: 60px 105px;
   width: 100%;
@@ -58,10 +59,10 @@
   background-repeat: no-repeat;
 
   position: absolute;
-  top: calc(50% - 26px);
+  top: calc(50% - 15px);
 
   @media (max-width: 489px) {
-    top: calc(100% - 20px);
+    top: 603px;
   }
 
   &:hover {
@@ -77,20 +78,20 @@
   }
 
   &_left {
-    background-image: url(../src/img/svg/Arrow_left.svg);
-    left: 0;
+    background-image: url('../src/img/svg/Arrow_left.svg');
+    left: 3%;
 
     @media (max-width: 489px) {
-      left: calc(30% - 34px);
+      left: 67px;
     }
   }
 
   &_right {
-    background-image: url(../src/img/svg/Arrow_right.svg);
-    right: 0;
+    background-image: url('../src/img/svg/Arrow_right.svg');
+    right: 3%;
 
     @media (max-width: 489px) {
-      right: calc(30% - 34px);
+      right: 67px;
     }
   }
 }

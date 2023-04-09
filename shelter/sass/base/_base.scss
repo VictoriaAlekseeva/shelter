@@ -16,7 +16,7 @@ body {
   font-weight: 400;
   font-style: normal;
 
-  &.burger-menu_active {
+  &.no-scroll {
     height: 100vh;
     overflow: hidden;
   }
