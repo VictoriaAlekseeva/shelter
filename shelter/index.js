@@ -44,7 +44,7 @@ burgerMenuItem.forEach((el) => el.addEventListener('click', closeMenu));
 //!move to separate file and add import
 const pets = [
   {
-    "id": "1",
+    "id": "0",
     "name": "Jennifer",
     "img": "./src/img/pets-jennifer.png",
     "type": "Dog",
@@ -56,7 +56,7 @@ const pets = [
     "parasites": ["none"]
   },
   {
-    "id": "2",
+    "id": "1",
     "name": "Sophia",
     "img": "./src/img/pets-sophia.png",
     "type": "Dog",
@@ -68,7 +68,7 @@ const pets = [
     "parasites": ["none"]
   },
   {
-    "id": "3",
+    "id": "2",
     "name": "Woody",
     "img": "./src/img/pets-woody.png",
     "type": "Dog",
@@ -80,7 +80,7 @@ const pets = [
     "parasites": ["none"]
   },
   {
-    "id": "4",
+    "id": "3",
     "name": "Scarlett",
     "img": "./src/img/pets-scarlett.png",
     "type": "Dog",
@@ -92,7 +92,7 @@ const pets = [
     "parasites": ["none"]
   },
   {
-    "id": "5",
+    "id": "4",
     "name": "Katrine",
     "img": "./src/img/pets-katrine.png",
     "type": "Cat",
@@ -104,7 +104,7 @@ const pets = [
     "parasites": ["none"]
   },
   {
-    "id": "6",
+    "id": "5",
     "name": "Timmy",
     "img": "./src/img/pets-timmy.png",
     "type": "Cat",
@@ -116,7 +116,7 @@ const pets = [
     "parasites": ["none"]
   },
   {
-    "id": "7",
+    "id": "6",
     "name": "Freddie",
     "img": "./src/img/pets-freddie.png",
     "type": "Cat",
@@ -128,7 +128,7 @@ const pets = [
     "parasites": ["none"]
   },
   {
-    "id": "8",
+    "id": "7",
     "name": "Charly",
     "img": "./src/img/pets-charly.png",
     "type": "Dog",
@@ -157,8 +157,9 @@ function generateFriendsCard(id, img, name) {
   return friendsCard;
 }
 
+const friendsWrapper = document.querySelector('.friends__wrapper') || document.querySelector('.friends-cards__wrapper');
+
 const getFriendsWrapper = () => {
-  const friendsWrapper = document.querySelector('.friends__wrapper') || document.querySelector('.friends-cards__wrapper');
   friendsWrapper.innerHTML = '';
   return friendsWrapper;
 };
@@ -187,21 +188,21 @@ renderFriendCardPets();
 //modal window
 let ourFriendsWrapper = document.querySelector('.our-friends__wrapper') || document.querySelector('.our-friends-pets__wrapper');
 
-function openModal() {
+function openModal(id) {
   let template = `
           <div class="friends-modal__overlay"></div>
           <div class="friends-modal__card">
             <span class = "friends-modal__close-button"></span>
-            <img src="./src/img/pets-jennifer.png" alt="Jennifer" class="friends-modal__img">
+            <img src=${pets[id].img} alt="Jennifer" class="friends-modal__img">
             <div class="friends-modal__description">
-              <h3 class="friends-modal__name">Jennifer</h3>
-              <h4 class="friends-modal__type">Dog - Labrador</h4>
-              <p class="friends-modal__text">Jennifer is a sweet 2 months old Labrador that is patiently waiting to find a new forever home. This girl really enjoys being able to go outside to run and play, but won't hesitate to play up a storm in the house if she has all of her favorite toys.</p>
+              <h3 class="friends-modal__name">${pets[id].name}</h3>
+              <h4 class="friends-modal__type">${pets[id].type} - ${pets[id].breed}</h4>
+              <p class="friends-modal__text">${pets[id].description}</p>
               <ul class="friends-modal__list">
-                <li><span class="text-bold">Age:</span> 2 mounth</li>
-                <li><span class="text-bold">Inoculations:</span> none</li>
-                <li><span class="text-bold">Diseases:</span> none</li>
-                <li><span class="text-bold">Parasites:</span> none</li>
+                <li><span class="text-bold">Age:</span> ${pets[id].age}</li>
+                <li><span class="text-bold">Inoculations:</span> ${pets[id].inoculations}</li>
+                <li><span class="text-bold">Diseases:</span> ${pets[id].diseases}</li>
+                <li><span class="text-bold">Parasites:</span> ${pets[id].age}</li>
               </ul>
             </div>
           </div>
@@ -217,9 +218,18 @@ function openModal() {
   return ourFriendsWrapper;
 }
 
-let friendsCard = document.querySelectorAll('.friends__card');
+// let friendsCard = document.querySelectorAll('.friends__card');
 
-friendsCard.forEach((el) => el.addEventListener('click', openModal));
+// friendsCard.forEach((el) => el.addEventListener('click', openModal));
+
+friendsWrapper.onclick = function (event) {
+  let target = event.target.closest('.friends__card');
+
+  if (target.className === 'friends__card') {
+    let id = target.getAttribute('data-id');
+    openModal(id);
+  }
+}
 
 
 //close modal
