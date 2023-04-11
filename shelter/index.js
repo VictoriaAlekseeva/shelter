@@ -1,4 +1,4 @@
-console.log(`110/110 все требования выполнены:
+console.log(`66/110 выполнены:
 Реализация burger menu на обеих страницах: +26
 при ширине страницы меньше 768рх панель навигации скрывается, появляется бургер-иконка: +2
 при нажатии на бургер-иконку, справа плавно появляется адаптивное меню шириной 320px, бургер-иконка плавно поворачивается на 90 градусов: +4
@@ -10,13 +10,38 @@ console.log(`110/110 все требования выполнены:
 расположение и размеры элементов в бургер-меню соответствует макету (центрирование по вертикали и горизонтали элементов меню, расположение иконки). При этом на странице Pets цветовая схема может быть как темная, так и светлая: +2
 область, свободная от бургер-меню, затемняется: +2
 страница под бургер-меню не прокручивается: +4
+
+Реализация слайдера-карусели на странице Main: +28
+при нажатии на стрелки происходит переход к новому блоку элементов: +4
+смена блоков происходит с соответствующей анимацией карусели (способ выполнения анимации не проверяется): +4
+при переключении влево или вправо прокручивается ровно столько карточек, сколько показывается при текущей ширине экрана (3 для 1280px, 2 для 768px, 1 для 320px): +4
+в следующем блоке нет дублирования карточек с текущим блоком. Например в слайдере из 3 элементов, следующий выезжающий слайд будет содержать 3 (из 8 доступных) новых карточки питомца, таких, каких не было среди 3х карточек на предыдущем уехавшем слайде: +4
+при каждой перезагрузке страницы формируется новая последовательность карточек: +2
+генерация наборов карточек происходит на основе 8 объектов с данными о животных: +2
+при изменении ширины экрана (от 1280px до 320px и обратно), слайдер перестраивается и работает без перезагрузки страницы (набор карточек при этом может как изменяться, так и оставаться тем же, скрывая лишнюю или добавляя недостающую, и сохраняя при этом описанные для слайдера требования): +4
+
+Реализация попап на обеих страницах: +12
+попап появляется при нажатии на любое место карточки с описанием конкретного животного: +2
+часть страницы вне попапа затемняется: +2
+при открытии попапа вертикальный скролл страницы становится неактивным, при закрытии - снова активным: +2
+при нажатии на область вокруг попапа или на кнопку с крестиком попап закрывается, при этом при нажатии на сам попап ничего не происходит: +2
+кнопка с крестиком интерактивная: +2
+окно попапа (не считая кнопку с крестиком) центрировано по всем осям, размеры элементов попапа и их расположение совпадают с макетом: +2
+
 `)
+
+
 
 window.onload = function() {
   console.log('Hello Rolling Scopes!');
 
-  // openModal();
+  fillFriendsCard();
 }
+
+window.onresize = function() {
+  fillFriendsCard();
+}
+
 
 // burger menu
 const burgerMenuButton = document.querySelector('.burger-menu__button');
@@ -141,6 +166,14 @@ const pets = [
   }
 ]
 
+function petsCardsMix(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
+}
 
 function generateFriendsCard(id, img, name) {
   let template = `
@@ -158,32 +191,82 @@ function generateFriendsCard(id, img, name) {
 }
 
 const friendsWrapper = document.querySelector('.friends__wrapper') || document.querySelector('.friends-cards__wrapper');
+const friendsWrapperMain = document.querySelector('.friends__wrapper');
+const friendsWrapperPets = document.querySelector('.friends-cards__wrapper');
 
-const getFriendsWrapper = () => {
-  friendsWrapper.innerHTML = '';
-  return friendsWrapper;
-};
+// const getFriendsWrapper = () => {
+//   friendsWrapper.innerHTML = '';
+//   return friendsWrapper;
+// };
 
-const renderFriendCard = (num) => {
-  let friendsWrapper = getFriendsWrapper();
+const renderFriendCardMain = (num) => {
+
+  if (!friendsWrapperMain) return;
+  // let friendsWrapper = getFriendsWrapper();
+  friendsWrapperMain.innerHTML = '';
+
+  let mixedPets = pets.slice();
+  petsCardsMix(mixedPets);
+
+  let randomPet = Math.floor(Math.random() * 5) // слйчайный номер карточки животного из диапазона первых двух карточек слайдера для дозаполнения слайдера из 9 элементов.
+
+  mixedPets.push(mixedPets[randomPet]); // добавляем новый элемент в массив, в итоге получаем 9 карточек
+
+  let slidesId = ['item-left', 'item-active', 'item-right'];
+
+  for (let slideNum = 0; slideNum < slidesId.length; slideNum++) { // генерируем слайды
+    let friendSlide = document.createElement('div');
+    friendSlide.className = 'friends__slide';
+    friendSlide.id = slidesId[slideNum];
+
+    for (let i = slideNum * num / 3; i < (slideNum * num / 3) + num / 3; i++) { //генерируем карточки в слайде. num / 3 - количество карточек в слайде под разную ширину экрана
+      let newCard = generateFriendsCard(mixedPets[i].id, mixedPets[i].img, mixedPets[i].name)
+      friendSlide.append(newCard);
+    }
+    friendsWrapperMain.append(friendSlide);
+  }
+  // console.log('pets', pets, 'mixedPets', mixedPets, 'pets[randomPet]', pets[randomPet], 'randomPet', randomPet)
+  return friendsWrapperMain;
+}
+
+// const renderFriendCardMain = (num) => {
+//   if (document.querySelector('.friends__wrapper')) renderFriendCard(num);
+// }
+
+const renderFriendCardPets = (num) => {
+  friendsWrapperPets.innerHTML = '';
+
+  if (!friendsWrapperPets) return;
+
+  let mixedPets = pets.slice();
+  petsCardsMix(mixedPets);
 
   for (let i = 0; i < num; i++) {
-    let newCard = generateFriendsCard(pets[i].id, pets[i].img, pets[i].name)
-    friendsWrapper.append(newCard);
+    let newCard = generateFriendsCard(mixedPets[i].id, mixedPets[i].img, mixedPets[i].name)
+    friendsWrapperPets.append(newCard);
   }
-  return friendsWrapper;
+
+
+// console.log('pets', pets, 'mixedPets', mixedPets, 'pets[randomPet]', pets[randomPet], 'randomPet', randomPet)
+return friendsWrapperPets;
+
 }
 
-const renderFriendCardMain = () => {
-  if (document.querySelector('.friends__wrapper')) renderFriendCard(3);
+const fillFriendsCard = () => {
+  let width = window.innerWidth;
+
+  if (width <= 489) {
+    renderFriendCardMain(3);
+    renderFriendCardPets(3);
+  } else if ((width > 489) && (width <= 991)) {
+    renderFriendCardMain(6);
+    renderFriendCardPets(6);
+  } else {
+    renderFriendCardMain(9);
+    renderFriendCardPets(8);
+  }
 }
 
-const renderFriendCardPets = () => {
-  if (document.querySelector('.friends-cards__wrapper')) renderFriendCard(8);
-}
-
-renderFriendCardMain();
-renderFriendCardPets();
 
 //modal window
 let ourFriendsWrapper = document.querySelector('.our-friends__wrapper') || document.querySelector('.our-friends-pets__wrapper');
@@ -218,16 +301,15 @@ function openModal(id) {
   return ourFriendsWrapper;
 }
 
-// let friendsCard = document.querySelectorAll('.friends__card');
-
-// friendsCard.forEach((el) => el.addEventListener('click', openModal));
 
 friendsWrapper.onclick = function (event) {
   let target = event.target.closest('.friends__card');
 
   if (target.className === 'friends__card') {
     let id = target.getAttribute('data-id');
-    openModal(id);
+
+    let modalId = pets.findIndex(el => el.id === id)
+    openModal(modalId);
   }
 }
 
@@ -249,7 +331,45 @@ ourFriendsWrapper.onclick = function (event) {
 }
 
 
+// carousel main
+
+const arrowLeft = document.querySelector('.arrow_left');
+const arrowRight = document.querySelector('.arrow_right');
+
+const moveLeft = () => {
+  friendsWrapper.classList.add('transition-left');
+  arrowLeft.removeEventListener('click', moveLeft); // отключаем EL чтобы нельзя было нажимать кнопки пока происходит анимация
+  arrowRight.removeEventListener('click', moveRight);
+}
+
+const moveRight = () => {
+  friendsWrapper.classList.add('transition-right');
+  arrowLeft.removeEventListener('click', moveLeft);
+  arrowRight.removeEventListener('click', moveRight);
+}
+
+if (arrowLeft) {arrowLeft.addEventListener('click', moveLeft);
+arrowRight.addEventListener('click', moveRight);}
+
+friendsWrapper.addEventListener('animationend', (animationEvent) => {
+  console.log(animationEvent);
+  if (animationEvent.animationName === ('move-left-desktop' || 'move-left-tablet' || 'move-left-mobile')) {
+    friendsWrapper.classList.remove('transition-left');
+    const leftItems = document.querySelector('#item-left').innerHTML;
+    document.querySelector('#item-active').innerHTML = leftItems;
+
+  } else {
+    friendsWrapper.classList.remove('transition-right');
+    const rightItems = document.querySelector('#item-right').innerHTML;
+    document.querySelector('#item-active').innerHTML = rightItems;
+  }
+  arrowLeft.addEventListener('click', moveLeft);
+  arrowRight.addEventListener('click', moveRight);
+});
 
 
 
 
+// arrowRight.addEventListener('click', () => {
+//   alert('right')
+// })
