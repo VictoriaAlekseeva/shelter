@@ -36,10 +36,13 @@ window.onload = function() {
   console.log('Hello Rolling Scopes!');
 
   fillFriendsCard();
+  friendsWrapperMain.addEventListener('animationend', carousel);
+
 }
 
 window.onresize = function() {
   fillFriendsCard();
+  friendsWrapperMain.addEventListener('animationend', carousel);
 }
 
 
@@ -234,9 +237,10 @@ const renderFriendCardMain = (num) => {
 // }
 
 const renderFriendCardPets = (num) => {
-  friendsWrapperPets.innerHTML = '';
 
   if (!friendsWrapperPets) return;
+
+  friendsWrapperPets.innerHTML = '';
 
   let mixedPets = pets.slice();
   petsCardsMix(mixedPets);
@@ -336,40 +340,59 @@ ourFriendsWrapper.onclick = function (event) {
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
 
+
 const moveLeft = () => {
-  friendsWrapper.classList.add('transition-left');
+  friendsWrapperMain.classList.add('transition-left');
   arrowLeft.removeEventListener('click', moveLeft); // отключаем EL чтобы нельзя было нажимать кнопки пока происходит анимация
   arrowRight.removeEventListener('click', moveRight);
 }
 
 const moveRight = () => {
-  friendsWrapper.classList.add('transition-right');
+  friendsWrapperMain.classList.add('transition-right');
   arrowLeft.removeEventListener('click', moveLeft);
   arrowRight.removeEventListener('click', moveRight);
 }
 
-if (arrowLeft) {arrowLeft.addEventListener('click', moveLeft);
-arrowRight.addEventListener('click', moveRight);}
+if (arrowLeft) {arrowLeft.addEventListener('click', moveLeft);}
+if (arrowRight) {arrowRight.addEventListener('click', moveRight);}
 
-friendsWrapper.addEventListener('animationend', (animationEvent) => {
-  console.log(animationEvent);
+
+function carousel(animationEvent) {
+
+  let slideLeft = document.querySelector('#item-left');
+  let slideRight = document.querySelector('#item-right');
+  let slideActive = document.querySelector('#item-active');
+  let changedSlide;
+
   if (animationEvent.animationName === ('move-left-desktop' || 'move-left-tablet' || 'move-left-mobile')) {
-    friendsWrapper.classList.remove('transition-left');
-    const leftItems = document.querySelector('#item-left').innerHTML;
-    document.querySelector('#item-active').innerHTML = leftItems;
-
-  } else {
-    friendsWrapper.classList.remove('transition-right');
-    const rightItems = document.querySelector('#item-right').innerHTML;
-    document.querySelector('#item-active').innerHTML = rightItems;
+    friendsWrapperMain.classList.remove('transition-left');
+    changedSlide = slideLeft;
+    console.log(slideLeft);
+    console.log(changedSlide);
+    slideRight.innerHTML = slideActive.innerHTML;
+    slideActive.innerHTML = changedSlide.innerHTML;
+  } else if (animationEvent.animationName === ('move-right-desktop' || 'move-right-tablet' || 'move-right-mobile')) {
+    friendsWrapperMain.classList.remove('transition-right');
+      changedSlide = slideRight;
+      console.log(slideRight);
+      console.log(changedSlide);
+      slideLeft.innerHTML = slideActive.innerHTML;
+      slideActive.innerHTML = changedSlide.innerHTML;
   }
+
+  changedSlide.innerHTML = '';
+
+  let cardsCounter = document.querySelector('#item-active').childNodes.length;
+  for (let i = 0; i < cardsCounter; i++) {
+    let num = Math.floor(Math.random() * 7);
+    changedSlide.append(generateFriendsCard(pets[num].id, pets[num].img, pets[num].name));
+  }
+
   arrowLeft.addEventListener('click', moveLeft);
   arrowRight.addEventListener('click', moveRight);
-});
+
+}
+
+friendsWrapperMain.addEventListener('animationend', carousel);
 
 
-
-
-// arrowRight.addEventListener('click', () => {
-//   alert('right')
-// })
