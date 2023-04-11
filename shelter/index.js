@@ -172,8 +172,9 @@ function generateFriendsCard(id, img, name) {
   return friendsCard;
 }
 
-// const friendsWrapper = document.querySelector('.friends__wrapper') || document.querySelector('.friends-cards__wrapper');
-const friendsWrapper = document.querySelector('.friends__wrapper');
+const friendsWrapper = document.querySelector('.friends__wrapper') || document.querySelector('.friends-cards__wrapper');
+const friendsWrapperMain = document.querySelector('.friends__wrapper');
+const friendsWrapperPets = document.querySelector('.friends-cards__wrapper');
 
 // const getFriendsWrapper = () => {
 //   friendsWrapper.innerHTML = '';
@@ -181,8 +182,10 @@ const friendsWrapper = document.querySelector('.friends__wrapper');
 // };
 
 const renderFriendCardMain = (num) => {
+
+  if (!friendsWrapperMain) return;
   // let friendsWrapper = getFriendsWrapper();
-  friendsWrapper.innerHTML = '';
+  friendsWrapperMain.innerHTML = '';
 
   let mixedPets = pets.slice();
   petsCardsMix(mixedPets);
@@ -202,10 +205,10 @@ const renderFriendCardMain = (num) => {
       let newCard = generateFriendsCard(mixedPets[i].id, mixedPets[i].img, mixedPets[i].name)
       friendSlide.append(newCard);
     }
-    friendsWrapper.append(friendSlide);
+    friendsWrapperMain.append(friendSlide);
   }
   // console.log('pets', pets, 'mixedPets', mixedPets, 'pets[randomPet]', pets[randomPet], 'randomPet', randomPet)
-  return friendsWrapper;
+  return friendsWrapperMain;
 }
 
 // const renderFriendCardMain = (num) => {
@@ -213,7 +216,22 @@ const renderFriendCardMain = (num) => {
 // }
 
 const renderFriendCardPets = (num) => {
-  // if (document.querySelector('.friends-cards__wrapper')) renderFriendCard(num);
+  friendsWrapperPets.innerHTML = '';
+
+  if (!friendsWrapperPets) return;
+
+  let mixedPets = pets.slice();
+  petsCardsMix(mixedPets);
+
+  for (let i = 0; i < num; i++) {
+    let newCard = generateFriendsCard(mixedPets[i].id, mixedPets[i].img, mixedPets[i].name)
+    friendsWrapperPets.append(newCard);
+  }
+
+
+// console.log('pets', pets, 'mixedPets', mixedPets, 'pets[randomPet]', pets[randomPet], 'randomPet', randomPet)
+return friendsWrapperPets;
+
 }
 
 const fillFriendsCard = () => {
@@ -312,8 +330,8 @@ const moveRight = () => {
   arrowRight.removeEventListener('click', moveRight);
 }
 
-arrowLeft.addEventListener('click', moveLeft);
-arrowRight.addEventListener('click', moveRight);
+if (arrowLeft) {arrowLeft.addEventListener('click', moveLeft);
+arrowRight.addEventListener('click', moveRight);}
 
 friendsWrapper.addEventListener('animationend', (animationEvent) => {
   console.log(animationEvent);
