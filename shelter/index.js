@@ -254,7 +254,9 @@ friendsWrapper.onclick = function (event) {
 
   if (target.className === 'friends__card') {
     let id = target.getAttribute('data-id');
-    openModal(id);
+
+    let modalId = pets.findIndex(el => el.id === id)
+    openModal(modalId);
   }
 }
 
