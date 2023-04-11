@@ -12,11 +12,18 @@ console.log(`110/110 все требования выполнены:
 страница под бургер-меню не прокручивается: +4
 `)
 
+
+
 window.onload = function() {
   console.log('Hello Rolling Scopes!');
 
-  // openModal();
+  fillFriendsCard();
 }
+
+window.onresize = function() {
+  fillFriendsCard();
+}
+
 
 // burger menu
 const burgerMenuButton = document.querySelector('.burger-menu__button');
@@ -141,6 +148,14 @@ const pets = [
   }
 ]
 
+function petsCardsMix(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
+}
 
 function generateFriendsCard(id, img, name) {
   let template = `
@@ -167,23 +182,38 @@ const getFriendsWrapper = () => {
 const renderFriendCard = (num) => {
   let friendsWrapper = getFriendsWrapper();
 
+  let mixedPets = petsCardsMix(pets);
+
   for (let i = 0; i < num; i++) {
-    let newCard = generateFriendsCard(pets[i].id, pets[i].img, pets[i].name)
+    let newCard = generateFriendsCard(mixedPets[i].id, mixedPets[i].img, mixedPets[i].name)
     friendsWrapper.append(newCard);
   }
   return friendsWrapper;
 }
 
-const renderFriendCardMain = () => {
-  if (document.querySelector('.friends__wrapper')) renderFriendCard(3);
+const renderFriendCardMain = (num) => {
+  if (document.querySelector('.friends__wrapper')) renderFriendCard(num);
 }
 
-const renderFriendCardPets = () => {
-  if (document.querySelector('.friends-cards__wrapper')) renderFriendCard(8);
+const renderFriendCardPets = (num) => {
+  if (document.querySelector('.friends-cards__wrapper')) renderFriendCard(num);
 }
 
-renderFriendCardMain();
-renderFriendCardPets();
+const fillFriendsCard = () => {
+  let width = window.innerWidth;
+
+  if (width <= 489) {
+    renderFriendCardMain(1);
+    renderFriendCardPets(3);
+  } else if ((width > 489) && (width <= 991)) {
+    renderFriendCardMain(2);
+    renderFriendCardPets(6);
+  } else {
+    renderFriendCardMain(3);
+    renderFriendCardPets(8);
+  }
+}
+
 
 //modal window
 let ourFriendsWrapper = document.querySelector('.our-friends__wrapper') || document.querySelector('.our-friends-pets__wrapper');
@@ -218,9 +248,6 @@ function openModal(id) {
   return ourFriendsWrapper;
 }
 
-// let friendsCard = document.querySelectorAll('.friends__card');
-
-// friendsCard.forEach((el) => el.addEventListener('click', openModal));
 
 friendsWrapper.onclick = function (event) {
   let target = event.target.closest('.friends__card');
