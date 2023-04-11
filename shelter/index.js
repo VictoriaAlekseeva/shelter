@@ -172,44 +172,61 @@ function generateFriendsCard(id, img, name) {
   return friendsCard;
 }
 
-const friendsWrapper = document.querySelector('.friends__wrapper') || document.querySelector('.friends-cards__wrapper');
+// const friendsWrapper = document.querySelector('.friends__wrapper') || document.querySelector('.friends-cards__wrapper');
+const friendsWrapper = document.querySelector('.friends__wrapper');
 
-const getFriendsWrapper = () => {
-  friendsWrapper.innerHTML = '';
-  return friendsWrapper;
-};
-
-const renderFriendCard = (num) => {
-  let friendsWrapper = getFriendsWrapper();
-
-  let mixedPets = petsCardsMix(pets);
-
-  for (let i = 0; i < num; i++) {
-    let newCard = generateFriendsCard(mixedPets[i].id, mixedPets[i].img, mixedPets[i].name)
-    friendsWrapper.append(newCard);
-  }
-  return friendsWrapper;
-}
+// const getFriendsWrapper = () => {
+//   friendsWrapper.innerHTML = '';
+//   return friendsWrapper;
+// };
 
 const renderFriendCardMain = (num) => {
-  if (document.querySelector('.friends__wrapper')) renderFriendCard(num);
+  // let friendsWrapper = getFriendsWrapper();
+  friendsWrapper.innerHTML = '';
+
+  let mixedPets = pets.slice();
+  petsCardsMix(mixedPets);
+
+  let randomPet = Math.floor(Math.random() * 5) // слйчайный номер карточки животного из диапазона первых двух карточек слайдера для дозаполнения слайдера из 9 элементов.
+
+  mixedPets.push(mixedPets[randomPet]); // добавляем новый элемент в массив, в итоге получаем 9 карточек
+
+  let slidesId = ['item-left', 'item-active', 'item-right'];
+
+  for (let slideNum = 0; slideNum < slidesId.length; slideNum++) { // генерируем слайды
+    let friendSlide = document.createElement('div');
+    friendSlide.className = 'friends__slide';
+    friendSlide.id = slidesId[slideNum];
+
+    for (let i = slideNum * num / 3; i < (slideNum * num / 3) + num / 3; i++) { //генерируем карточки в слайде. num / 3 - количество карточек в слайде под разную ширину экрана
+      let newCard = generateFriendsCard(mixedPets[i].id, mixedPets[i].img, mixedPets[i].name)
+      friendSlide.append(newCard);
+    }
+    friendsWrapper.append(friendSlide);
+  }
+  // console.log('pets', pets, 'mixedPets', mixedPets, 'pets[randomPet]', pets[randomPet], 'randomPet', randomPet)
+  return friendsWrapper;
 }
 
+// const renderFriendCardMain = (num) => {
+//   if (document.querySelector('.friends__wrapper')) renderFriendCard(num);
+// }
+
 const renderFriendCardPets = (num) => {
-  if (document.querySelector('.friends-cards__wrapper')) renderFriendCard(num);
+  // if (document.querySelector('.friends-cards__wrapper')) renderFriendCard(num);
 }
 
 const fillFriendsCard = () => {
   let width = window.innerWidth;
 
   if (width <= 489) {
-    renderFriendCardMain(1);
+    renderFriendCardMain(3);
     renderFriendCardPets(3);
   } else if ((width > 489) && (width <= 991)) {
-    renderFriendCardMain(2);
+    renderFriendCardMain(6);
     renderFriendCardPets(6);
   } else {
-    renderFriendCardMain(3);
+    renderFriendCardMain(9);
     renderFriendCardPets(8);
   }
 }
@@ -278,7 +295,45 @@ ourFriendsWrapper.onclick = function (event) {
 }
 
 
+// carousel main
+
+const arrowLeft = document.querySelector('.arrow_left');
+const arrowRight = document.querySelector('.arrow_right');
+
+const moveLeft = () => {
+  friendsWrapper.classList.add('transition-left');
+  arrowLeft.removeEventListener('click', moveLeft); // отключаем EL чтобы нельзя было нажимать кнопки пока происходит анимация
+  arrowRight.removeEventListener('click', moveRight);
+}
+
+const moveRight = () => {
+  friendsWrapper.classList.add('transition-right');
+  arrowLeft.removeEventListener('click', moveLeft);
+  arrowRight.removeEventListener('click', moveRight);
+}
+
+arrowLeft.addEventListener('click', moveLeft);
+arrowRight.addEventListener('click', moveRight);
+
+friendsWrapper.addEventListener('animationend', (animationEvent) => {
+  console.log(animationEvent);
+  if (animationEvent.animationName === ('move-left-desktop' || 'move-left-tablet' || 'move-left-mobile')) {
+    friendsWrapper.classList.remove('transition-left');
+    const leftItems = document.querySelector('#item-left').innerHTML;
+    document.querySelector('#item-active').innerHTML = leftItems;
+
+  } else {
+    friendsWrapper.classList.remove('transition-right');
+    const rightItems = document.querySelector('#item-right').innerHTML;
+    document.querySelector('#item-active').innerHTML = rightItems;
+  }
+  arrowLeft.addEventListener('click', moveLeft);
+  arrowRight.addEventListener('click', moveRight);
+});
 
 
 
 
+// arrowRight.addEventListener('click', () => {
+//   alert('right')
+// })
