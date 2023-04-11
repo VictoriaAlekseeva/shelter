@@ -27,24 +27,119 @@
   }
 }
 
-.friends__wrapper {
-  // position: relative;
-  display: flex;
-  padding: 60px 105px;
-  width: 100%;
-  gap: 10px;
-  justify-content: space-between;
+.friends__wrapper_hidden {
+  overflow: hidden;
+  width: 990px;
 
   @media (max-width: 991px) {
-    padding: 60px 64px;
-    justify-content: center;
-    gap: 40px;
+    width: 580px;
+  }
+
+
+  @media (max-width: 489px) {
+    width: 270px;
+  }
+
+}
+
+.friends__wrapper {
+  position: relative;
+  display: flex;
+  padding: 60px 0px;
+  left: -990px;
+  width: 100%;
+  // gap: 10px;
+  // justify-content: space-between;
+
+  @media (max-width: 991px) {
+    padding: 60px 0px;
+    // justify-content: center;
+    // gap: 40px;
+    left: -580px;
   }
 
   @media (max-width: 489px) {
-    width: 100%;
-    padding: 40px 15px;
+    // width: 100%;
+    padding: 40px 0px;
     margin-bottom: 75px;
+    left: -270px;
+  }
+}
+
+.friends__slide {
+  display: flex;
+  width: 990px;
+  gap: 90px;
+  justify-content: space-between;
+
+  @media (max-width: 991px) {
+    gap: 40px;
+    width: 580px;
+  }
+
+  @media (max-width: 489px) {
+    width: 270px;
+    gap: 0px;
+  }
+}
+
+@keyframes move-right-desktop {
+  from {left: -990px;}
+  to {left: -1980px;}
+}
+
+@keyframes move-right-tablet {
+  from {left: -580px;}
+  to {left: -1160px;}
+}
+
+@keyframes move-right-mobile {
+  from {left: -270px;}
+  to {left: -540px;}
+}
+
+.transition-right {
+  animation-name: move-right-desktop;
+  animation-duration: 2s;
+
+  @media (max-width: 991px) {
+    animation-name: move-right-tablet;
+    animation-duration: 2s;
+  }
+
+  @media (max-width: 489px) {
+    animation-name: move-right-mobile;
+    animation-duration: 2s;
+  }
+}
+
+@keyframes move-left-desktop {
+  from {left: -990px;}
+  to {left: 0px;}
+}
+
+@keyframes move-left-tablet {
+  from {left: -580px;}
+  to {left: 0px;}
+}
+
+@keyframes move-left-mobile {
+  from {left: -270px;}
+  to {left: 0px;}
+}
+
+.transition-left {
+  animation-name: move-left-desktop;
+  animation-duration: 2s;
+
+  @media (max-width: 991px) {
+    animation-name: move-left-tablet;
+    animation-duration: 2s;
+  }
+
+  @media (max-width: 489px) {
+    animation-name: move-left-mobile;
+    animation-duration: 2s;
   }
 }
 
@@ -107,7 +202,7 @@
   padding-bottom: 30px;
 
   @media (max-width: 489px) {
-    width: 100%;
+    // width: 100%;
   }
 
   &:hover {
