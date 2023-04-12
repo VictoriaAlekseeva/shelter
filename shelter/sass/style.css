@@ -1431,12 +1431,15 @@ p {
 }
 
 .slide_active {
+  position: relative;
   left: 0;
 }
 
 .friends-cards__wrapper {
   display: flex;
   width: fit-content;
+  position: relative;
+  transition: 2s;
 }
 
 .transition-right-pets {
@@ -1459,7 +1462,7 @@ p {
 }
 @keyframes move-left-pets-desktop {
   from {
-    left: -100%;
+    left: 100%;
   }
   to {
     left: 0px;

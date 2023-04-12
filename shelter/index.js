@@ -254,12 +254,15 @@ const renderFriendCardPets = (num) => {
   for (let i = 0; i < petsOnSlide; i++) {
   let friendsCardSlide = document.createElement('div');
   friendsCardSlide.className = "friends-card__slide";
+  friendsCardSlide.setAttribute('data-id', `slide${i+1}`)
     for (let j = 0; j < num; j++) {
-      let newCard = generateFriendsCard(petsCards[j].id, petsCards[j].img, petsCards[j].name)
+      let index = i * petsOnSlide + j;
+      let newCard = generateFriendsCard(petsCards[index].id, petsCards[index].img, petsCards[index].name)
       friendsCardSlide.append(newCard);
     }
 
   friendsWrapperPets.append(friendsCardSlide);
+  document.querySelector('.friends-card__slide').classList.add('slide_active'); // добавить класс active на первый слайд
   }
 
   // let mixedPets = pets.slice();
@@ -355,7 +358,6 @@ ourFriendsWrapper.onclick = function (event) {
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
 
-
 const moveLeft = () => {
   friendsWrapperMain.classList.add('transition-left');
   arrowLeft.removeEventListener('click', moveLeft); // отключаем EL чтобы нельзя было нажимать кнопки пока происходит анимация
@@ -408,9 +410,118 @@ function carousel(animationEvent) {
 
 }
 
-friendsWrapperMain.addEventListener('animationend', carousel);
+if (friendsWrapperMain) friendsWrapperMain.addEventListener('animationend', carousel);
 
 
 //pets slider
 
+const buttonRight = document.querySelector('#forward');
+const buttonLeft = document.querySelector('#back');
+const buttonToBegin = document.querySelector('#toBegin');
+const buttonToEnd = document.querySelector('#toEnd');
 
+
+let pageNumber = document.querySelector('.pagination__item_active_page-number');
+
+let counter = 1; //счетчик страниц
+
+buttonRight.addEventListener('click', sliderRight);
+buttonLeft.addEventListener('click', sliderLeft);
+buttonToBegin.addEventListener('click', toBegin);
+buttonToEnd.addEventListener('click', toEnd);
+
+let currentPosition = Number.parseInt(friendsWrapperPets.style.marginLeft || 0);
+
+function sliderRight() {
+  if (buttonRight.classList.contains('pagination__item_inactive')) return;
+
+  currentPosition = currentPosition - 1200;
+  friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
+
+  toggleButtons();
+
+  pageNumber.innerHTML = ++counter;
+
+  return currentPosition;
+}
+
+function sliderLeft() {
+  if (buttonLeft.classList.contains('pagination__item_inactive')) return;
+
+  currentPosition = currentPosition + 1200;
+  friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
+
+  toggleButtons();
+
+  pageNumber.innerHTML = --counter;
+
+  return currentPosition;
+}
+
+function toBegin() {
+  if (buttonToBegin.classList.contains('pagination__item_inactive')) return;
+
+  currentPosition = 0;
+  friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
+
+  toggleButtons();
+  pageNumber.innerHTML = 1;
+
+  return currentPosition;
+}
+
+function toEnd() {
+  if (buttonToEnd.classList.contains('pagination__item_inactive')) return;
+
+  currentPosition = -6000;
+  friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
+
+  toggleButtons();
+  pageNumber.innerHTML = 6;
+
+  return currentPosition;
+}
+
+
+function leftButtonsActivate() {
+  buttonLeft.classList.remove('pagination__item_inactive');
+  buttonLeft.classList.add('pagination__item_active');
+  buttonToBegin.classList.remove('pagination__item_inactive');
+  buttonToBegin.classList.add('pagination__item_active');
+}
+
+function rightButtonsActivate() {
+  buttonRight.classList.remove('pagination__item_inactive');
+  buttonRight.classList.add('pagination__item_active');
+  buttonToEnd.classList.remove('pagination__item_inactive');
+  buttonToEnd.classList.add('pagination__item_active');
+}
+
+function leftButtonsDeactivate() {
+  buttonLeft.classList.add('pagination__item_inactive');
+  buttonLeft.classList.remove('pagination__item_active');
+  buttonToBegin.classList.add('pagination__item_inactive');
+  buttonToBegin.classList.remove('pagination__item_active');
+}
+
+function rightButtonsDeactivate() {
+  buttonRight.classList.add('pagination__item_inactive');
+  buttonRight.classList.remove('pagination__item_active');
+  buttonToEnd.classList.add('pagination__item_inactive');
+  buttonToEnd.classList.remove('pagination__item_active');
+}
+
+function toggleButtons() {
+  if (currentPosition == 0) {
+    leftButtonsDeactivate();
+    rightButtonsActivate();
+  } else if (currentPosition == -6000) {
+    leftButtonsActivate();
+    rightButtonsDeactivate();
+  } else {
+    leftButtonsActivate();
+    rightButtonsActivate();
+  }
+}
+
+// friendsWrapperPets.addEventListener('animationend', slider);

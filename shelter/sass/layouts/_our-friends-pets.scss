@@ -66,12 +66,16 @@
 }
 
 .slide_active {
+  position: relative;
   left: 0;
 }
 
 .friends-cards__wrapper {
   display: flex;
   width: fit-content;
+  position: relative;
+  // left: 0;
+  transition: 2s;
 }
 
 .transition-right-pets {
@@ -90,6 +94,6 @@
 }
 
 @keyframes move-left-pets-desktop {
-  from {left: -100%;}
+  from {left: 100%;}
   to {left: 0px;}
 }
