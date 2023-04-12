@@ -1367,6 +1367,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  left: 0;
 }
 .our-friends-pets__wrapper .our-friends-pets__header {
   width: 400px;
@@ -1389,7 +1390,23 @@ p {
   }
 }
 
-.friends-cards__wrapper {
+.friends-cards__wrapper_hidden {
+  overflow: hidden;
+  max-width: 1200px;
+}
+@media (max-width: 991px) {
+  .friends-cards__wrapper_hidden {
+    max-width: 580px;
+  }
+}
+@media (max-width: 489px) {
+  .friends-cards__wrapper_hidden {
+    max-width: 270px;
+  }
+}
+
+.friends-card__slide {
+  width: 1200px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1397,17 +1414,56 @@ p {
   margin: 60px 0;
 }
 @media (max-width: 991px) {
-  .friends-cards__wrapper {
+  .friends-card__slide {
     justify-content: center;
-    margin: 30px 0 45px;
     column-gap: 40px;
     row-gap: 30px;
+    width: 580px;
   }
 }
 @media (max-width: 489px) {
-  .friends-cards__wrapper {
-    width: 90%;
+  .friends-card__slide {
     margin-top: 45px;
+    width: 270px;
+  }
+}
+
+.slide_active {
+  position: relative;
+  left: 0;
+}
+
+.friends-cards__wrapper {
+  display: flex;
+  width: fit-content;
+  position: relative;
+  transition: 2s;
+}
+
+.transition-right-pets {
+  animation-name: move-right-pets-desktop;
+  animation-duration: 2s;
+}
+
+.transition-left-pets {
+  animation-name: move-left-pets-desktop;
+  animation-duration: 2s;
+}
+
+@keyframes move-right-pets-desktop {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+@keyframes move-left-pets-desktop {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0px;
   }
 }
 
