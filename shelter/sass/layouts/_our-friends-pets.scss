@@ -52,14 +52,13 @@
 
   @media (max-width: 991px) {
     justify-content: center;
-    margin: 30px 0 45px;
+    // margin: 30px 0 45px;
     column-gap: 40px;
     row-gap: 30px;
     width: 580px;
   }
 
   @media (max-width:489px) {
-    width: 90%;
     margin-top: 45px;
     width: 270px;
   }

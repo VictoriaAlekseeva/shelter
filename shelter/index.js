@@ -249,16 +249,17 @@ const renderFriendCardPets = (num) => {
   // 48/num - 48 общее число карточек животных в массиве
   friendsWrapperPets.innerHTML = '';
 
-  let petsOnSlide = petsCards.length / num;
+  let petsSlides = petsCards.length / num;
 
-  for (let i = 0; i < petsOnSlide; i++) {
+  let index = 0;
+  for (let i = 0; i < petsSlides; i++) {
   let friendsCardSlide = document.createElement('div');
   friendsCardSlide.className = "friends-card__slide";
   friendsCardSlide.setAttribute('data-id', `slide${i+1}`)
     for (let j = 0; j < num; j++) {
-      let index = i * petsOnSlide + j;
       let newCard = generateFriendsCard(petsCards[index].id, petsCards[index].img, petsCards[index].name)
       friendsCardSlide.append(newCard);
+      index++;
     }
 
   friendsWrapperPets.append(friendsCardSlide);
@@ -421,6 +422,7 @@ const buttonToBegin = document.querySelector('#toBegin');
 const buttonToEnd = document.querySelector('#toEnd');
 
 
+
 let pageNumber = document.querySelector('.pagination__item_active_page-number');
 
 let counter = 1; //счетчик страниц
@@ -433,9 +435,10 @@ buttonToEnd.addEventListener('click', toEnd);
 let currentPosition = Number.parseInt(friendsWrapperPets.style.marginLeft || 0);
 
 function sliderRight() {
+  let slideWidth = document.querySelector('.friends-card__slide').offsetWidth;
   if (buttonRight.classList.contains('pagination__item_inactive')) return;
 
-  currentPosition = currentPosition - 1200;
+  currentPosition = currentPosition - slideWidth;
   friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
 
   toggleButtons();
@@ -446,9 +449,10 @@ function sliderRight() {
 }
 
 function sliderLeft() {
+  let slideWidth = document.querySelector('.friends-card__slide').offsetWidth;
   if (buttonLeft.classList.contains('pagination__item_inactive')) return;
 
-  currentPosition = currentPosition + 1200;
+  currentPosition = currentPosition + slideWidth;
   friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
 
   toggleButtons();
@@ -512,10 +516,12 @@ function rightButtonsDeactivate() {
 }
 
 function toggleButtons() {
+  let slideWidth = document.querySelector('.friends-card__slide').offsetWidth;
+
   if (currentPosition == 0) {
     leftButtonsDeactivate();
     rightButtonsActivate();
-  } else if (currentPosition == -6000) {
+  } else if ((slideWidth === 1200) && (currentPosition == -6000) || ((slideWidth === 580) && (currentPosition == -4060)) || (slideWidth === 580) && (currentPosition == -4060) || ((slideWidth === 270) && (currentPosition == -4050))) {
     leftButtonsActivate();
     rightButtonsDeactivate();
   } else {
