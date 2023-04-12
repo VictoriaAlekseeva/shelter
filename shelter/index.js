@@ -1,4 +1,4 @@
-console.log(`66/110 выполнены:
+console.log(`94/110 выполнены:
 Реализация burger menu на обеих страницах: +26
 при ширине страницы меньше 768рх панель навигации скрывается, появляется бургер-иконка: +2
 при нажатии на бургер-иконку, справа плавно появляется адаптивное меню шириной 320px, бургер-иконка плавно поворачивается на 90 градусов: +4
@@ -20,6 +20,22 @@ console.log(`66/110 выполнены:
 генерация наборов карточек происходит на основе 8 объектов с данными о животных: +2
 при изменении ширины экрана (от 1280px до 320px и обратно), слайдер перестраивается и работает без перезагрузки страницы (набор карточек при этом может как изменяться, так и оставаться тем же, скрывая лишнюю или добавляя недостающую, и сохраняя при этом описанные для слайдера требования): +4
 
+Реализация пагинации на странице Pets: +28
+при перезагрузке страницы всегда открывается первая страница пагинации: +2
+при нажатии кнопок > или < открывается следующая или предыдущая страница пагинации соответственно: +2
+при нажатии кнопок >> или << открывается последняя или первая страница пагинации соответственно: +2
+при открытии первой страницы кнопки << и < неактивны: +2
+при открытии последней страницы кнопки > и >> неактивны: +2
+в кружке по центру указан номер текущей страницы. При переключении страниц номер меняется на актуальный: +2
+каждая страница пагинации содержит псевдослучайный набор питомцев, т.е. формируется из исходных объектов в случайном порядке со следующими условиями:
+при загрузке страницы формируется массив из 48 объектов питомцев. Каждый из 8 питомцев должен встречаться ровно 6 раз: +4
+при каждой перезагрузке страницы формируется новый массив со случайной последовательностью: +4
+при переключении страницы данные меняются (для >1280px меняется порядок карточек, для остальных - меняется набор и порядок карточек): +4
+при неизменных размерах области пагинации, в том числе размерах окна браузера, и без перезагрузки страницы, возвращаясь на страницу под определенным номером, контент на ней всегда будет одинаков. Т.е. карточки питомцев будут в том же расположении, что и были до перехода на другие страницы: +2
+общее количество страниц при ширине экрана 1280px - 6, при 768px - 8, при 320px - 16 страниц: +2
+
+
+
 Реализация попап на обеих страницах: +12
 попап появляется при нажатии на любое место карточки с описанием конкретного животного: +2
 часть страницы вне попапа затемняется: +2
@@ -36,13 +52,13 @@ window.onload = function() {
   console.log('Hello Rolling Scopes!');
 
   fillFriendsCard();
-  friendsWrapperMain.addEventListener('animationend', carousel);
+  if (friendsWrapperMain) friendsWrapperMain.addEventListener('animationend', carousel);
 
 }
 
 window.onresize = function() {
   fillFriendsCard();
-  friendsWrapperMain.addEventListener('animationend', carousel);
+  if (friendsWrapperMain) friendsWrapperMain.addEventListener('animationend', carousel);
 }
 
 
@@ -240,15 +256,34 @@ const renderFriendCardPets = (num) => {
 
   if (!friendsWrapperPets) return;
 
+  let petsCards = [];
+  for (let i = 0; i < 6; i++) {
+    petsCards = petsCards.concat(petsCardsMix(pets));
+  }
+  console.log (petsCards);
+
+  // 48/num - 48 общее число карточек животных в массиве
   friendsWrapperPets.innerHTML = '';
 
-  let mixedPets = pets.slice();
-  petsCardsMix(mixedPets);
+  let petsSlides = petsCards.length / num;
 
-  for (let i = 0; i < num; i++) {
-    let newCard = generateFriendsCard(mixedPets[i].id, mixedPets[i].img, mixedPets[i].name)
-    friendsWrapperPets.append(newCard);
+  let index = 0;
+  for (let i = 0; i < petsSlides; i++) {
+  let friendsCardSlide = document.createElement('div');
+  friendsCardSlide.className = "friends-card__slide";
+  friendsCardSlide.setAttribute('data-id', `slide${i+1}`)
+    for (let j = 0; j < num; j++) {
+      let newCard = generateFriendsCard(petsCards[index].id, petsCards[index].img, petsCards[index].name)
+      friendsCardSlide.append(newCard);
+      index++;
+    }
+
+  friendsWrapperPets.append(friendsCardSlide);
+  document.querySelector('.friends-card__slide').classList.add('slide_active'); // добавить класс active на первый слайд
   }
+
+  // let mixedPets = pets.slice();
+  // petsCardsMix(mixedPets);
 
 
 // console.log('pets', pets, 'mixedPets', mixedPets, 'pets[randomPet]', pets[randomPet], 'randomPet', randomPet)
@@ -340,7 +375,6 @@ ourFriendsWrapper.onclick = function (event) {
 const arrowLeft = document.querySelector('.arrow_left');
 const arrowRight = document.querySelector('.arrow_right');
 
-
 const moveLeft = () => {
   friendsWrapperMain.classList.add('transition-left');
   arrowLeft.removeEventListener('click', moveLeft); // отключаем EL чтобы нельзя было нажимать кнопки пока происходит анимация
@@ -393,6 +427,123 @@ function carousel(animationEvent) {
 
 }
 
-friendsWrapperMain.addEventListener('animationend', carousel);
+if (friendsWrapperMain) friendsWrapperMain.addEventListener('animationend', carousel);
 
 
+//pets slider
+
+const buttonRight = document.querySelector('#forward');
+const buttonLeft = document.querySelector('#back');
+const buttonToBegin = document.querySelector('#toBegin');
+const buttonToEnd = document.querySelector('#toEnd');
+
+
+
+let pageNumber = document.querySelector('.pagination__item_active_page-number');
+
+let counter = 1; //счетчик страниц
+
+buttonRight.addEventListener('click', sliderRight);
+buttonLeft.addEventListener('click', sliderLeft);
+buttonToBegin.addEventListener('click', toBegin);
+buttonToEnd.addEventListener('click', toEnd);
+
+let currentPosition = Number.parseInt(friendsWrapperPets.style.marginLeft || 0);
+
+function sliderRight() {
+  let slideWidth = document.querySelector('.friends-card__slide').offsetWidth;
+  if (buttonRight.classList.contains('pagination__item_inactive')) return;
+
+  currentPosition = currentPosition - slideWidth;
+  friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
+
+  toggleButtons();
+
+  pageNumber.innerHTML = ++counter;
+
+  return currentPosition;
+}
+
+function sliderLeft() {
+  let slideWidth = document.querySelector('.friends-card__slide').offsetWidth;
+  if (buttonLeft.classList.contains('pagination__item_inactive')) return;
+
+  currentPosition = currentPosition + slideWidth;
+  friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
+
+  toggleButtons();
+
+  pageNumber.innerHTML = --counter;
+
+  return currentPosition;
+}
+
+function toBegin() {
+  if (buttonToBegin.classList.contains('pagination__item_inactive')) return;
+
+  currentPosition = 0;
+  friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
+
+  toggleButtons();
+  pageNumber.innerHTML = 1;
+
+  return currentPosition;
+}
+
+function toEnd() {
+  if (buttonToEnd.classList.contains('pagination__item_inactive')) return;
+
+  currentPosition = -6000;
+  friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
+
+  toggleButtons();
+  pageNumber.innerHTML = 6;
+
+  return currentPosition;
+}
+
+
+function leftButtonsActivate() {
+  buttonLeft.classList.remove('pagination__item_inactive');
+  buttonLeft.classList.add('pagination__item_active');
+  buttonToBegin.classList.remove('pagination__item_inactive');
+  buttonToBegin.classList.add('pagination__item_active');
+}
+
+function rightButtonsActivate() {
+  buttonRight.classList.remove('pagination__item_inactive');
+  buttonRight.classList.add('pagination__item_active');
+  buttonToEnd.classList.remove('pagination__item_inactive');
+  buttonToEnd.classList.add('pagination__item_active');
+}
+
+function leftButtonsDeactivate() {
+  buttonLeft.classList.add('pagination__item_inactive');
+  buttonLeft.classList.remove('pagination__item_active');
+  buttonToBegin.classList.add('pagination__item_inactive');
+  buttonToBegin.classList.remove('pagination__item_active');
+}
+
+function rightButtonsDeactivate() {
+  buttonRight.classList.add('pagination__item_inactive');
+  buttonRight.classList.remove('pagination__item_active');
+  buttonToEnd.classList.add('pagination__item_inactive');
+  buttonToEnd.classList.remove('pagination__item_active');
+}
+
+function toggleButtons() {
+  let slideWidth = document.querySelector('.friends-card__slide').offsetWidth;
+
+  if (currentPosition == 0) {
+    leftButtonsDeactivate();
+    rightButtonsActivate();
+  } else if ((slideWidth === 1200) && (currentPosition == -6000) || ((slideWidth === 580) && (currentPosition == -4060)) || (slideWidth === 580) && (currentPosition == -4060) || ((slideWidth === 270) && (currentPosition == -4050))) {
+    leftButtonsActivate();
+    rightButtonsDeactivate();
+  } else {
+    leftButtonsActivate();
+    rightButtonsActivate();
+  }
+}
+
+// friendsWrapperPets.addEventListener('animationend', slider);
