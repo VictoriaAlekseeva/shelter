@@ -491,13 +491,27 @@ function toBegin() {
 }
 
 function toEnd() {
+
+  let slideWidth = document.querySelector('.friends-card__slide').offsetWidth;
+
+  if (slideWidth === 1200) {
+    currentPosition = -6000;
+    pageNumber.innerHTML = 6;
+  } else if (slideWidth === 580) {
+    currentPosition = -4060;
+    pageNumber.innerHTML = 8;
+  } else if (slideWidth === 270) {
+    currentPosition = -4050;
+    pageNumber.innerHTML = 16;
+  }
+
   if (buttonToEnd.classList.contains('pagination__item_inactive')) return;
 
-  currentPosition = -6000;
+  // currentPosition = -6000;
   friendsWrapperPets.style.marginLeft = `${currentPosition}px`;
 
   toggleButtons();
-  pageNumber.innerHTML = 6;
+
 
   return currentPosition;
 }
@@ -537,7 +551,7 @@ function toggleButtons() {
   if (currentPosition == 0) {
     leftButtonsDeactivate();
     rightButtonsActivate();
-  } else if ((slideWidth === 1200) && (currentPosition == -6000) || ((slideWidth === 580) && (currentPosition == -4060)) || (slideWidth === 580) && (currentPosition == -4060) || ((slideWidth === 270) && (currentPosition == -4050))) {
+  } else if ((slideWidth === 1200) && (currentPosition == -6000) || ((slideWidth === 580) && (currentPosition == -4060)) || ((slideWidth === 270) && (currentPosition == -4050))) {
     leftButtonsActivate();
     rightButtonsDeactivate();
   } else {
