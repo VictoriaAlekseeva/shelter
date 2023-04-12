@@ -36,13 +36,13 @@ window.onload = function() {
   console.log('Hello Rolling Scopes!');
 
   fillFriendsCard();
-  friendsWrapperMain.addEventListener('animationend', carousel);
+  if (friendsWrapperMain) friendsWrapperMain.addEventListener('animationend', carousel);
 
 }
 
 window.onresize = function() {
   fillFriendsCard();
-  friendsWrapperMain.addEventListener('animationend', carousel);
+  if (friendsWrapperMain) friendsWrapperMain.addEventListener('animationend', carousel);
 }
 
 
@@ -240,15 +240,30 @@ const renderFriendCardPets = (num) => {
 
   if (!friendsWrapperPets) return;
 
+  let petsCards = [];
+  for (let i = 0; i < 6; i++) {
+    petsCards = petsCards.concat(petsCardsMix(pets));
+  }
+  console.log (petsCards);
+
+  // 48/num - 48 общее число карточек животных в массиве
   friendsWrapperPets.innerHTML = '';
 
-  let mixedPets = pets.slice();
-  petsCardsMix(mixedPets);
+  let petsOnSlide = petsCards.length / num;
 
-  for (let i = 0; i < num; i++) {
-    let newCard = generateFriendsCard(mixedPets[i].id, mixedPets[i].img, mixedPets[i].name)
-    friendsWrapperPets.append(newCard);
+  for (let i = 0; i < petsOnSlide; i++) {
+  let friendsCardSlide = document.createElement('div');
+  friendsCardSlide.className = "friends-card__slide";
+    for (let j = 0; j < num; j++) {
+      let newCard = generateFriendsCard(petsCards[j].id, petsCards[j].img, petsCards[j].name)
+      friendsCardSlide.append(newCard);
+    }
+
+  friendsWrapperPets.append(friendsCardSlide);
   }
+
+  // let mixedPets = pets.slice();
+  // petsCardsMix(mixedPets);
 
 
 // console.log('pets', pets, 'mixedPets', mixedPets, 'pets[randomPet]', pets[randomPet], 'randomPet', randomPet)
@@ -394,5 +409,8 @@ function carousel(animationEvent) {
 }
 
 friendsWrapperMain.addEventListener('animationend', carousel);
+
+
+//pets slider
 
 
